@@ -19,7 +19,7 @@ The webpage [_peps01_slice.html_](https://github.com/eurostat/d3force4EUSILC/blo
 
 **Usage** 
 
-**To actually see the interactive visualisation, you need to download the webpage and display it locally in your browser.** You can get a preview of this page using `rawgit`: **check this [address](https://cdn.rawgit.com/eurostat/d3force4EUSILC/b245c372/d3force/peps01_slice.html) for quick rendering/visualisation**, though the display is much slower and some of its features are disabled.
+**To actually see the interactive visualisation, you need to download the webpage and display it locally in your browser.** You can get a preview of this page using `rawgit`: **check this [address](https://cdn.rawgit.com/eurostat/d3force4EUSILC/d3300d9f/peps01_slice.html) for quick rendering/visualisation**, though the display is much slower and some of its features are disabled.
 
 All _html/javascript/css_ resources used by the original _"Four ways to slice..."_ publication have been embedded in the webpage _peps01_slice.html_. The code has been modified accordingly so as to visualise  specifically the selected data  (see `javascript` variables `estat.rate_data_total`, `estat.category_list` and `estat.category_data`).
 
