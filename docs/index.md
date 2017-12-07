@@ -1,4 +1,4 @@
-#### `d3force@ESTAT` -- Applying `d3-force` layout for slicing and exploring EU-SILC data
+#### Applying `d3-force` layout for slicing and exploring EU-SILC data
 
 **About**
 
@@ -6,7 +6,7 @@ This page provides relevant tools used to prepare selected social indicator data
 
 **Description**
 
-The webpage [_peps01_slice.html_](https://github.com/gjacopo/bodylanguage/blob/master/d3force/peps01_slice.html) illustrates some important figures related to ESTAT indicator _ilc_peps01_ on *people at risk of poverty or social exclusion* by age and sex (see also the  news release [below](#References)). The front page (first tab selected) looks like this:
+The webpage [_peps01_slice.html_](https://github.com/eurostat/d3force4EUSILC/blob/master/peps01_slice.html) illustrates some important figures related to ESTAT indicator _ilc_peps01_ on *people at risk of poverty or social exclusion* by age and sex (see also the  news release [below](#References)). The front page (first tab selected) looks like this:
 <table>
 <tr>
 <td><kbd><img src="peps01-d3force.png" alt="PEPS01 display"></kbd></td>
@@ -15,17 +15,17 @@ The webpage [_peps01_slice.html_](https://github.com/gjacopo/bodylanguage/blob/m
 
 **Usage** 
 
-**To actually see the interactive visualisation, you need to download the webpage and display it locally in your browser.** You can get a preview of this page using `rawgit`: **check this [address](https://cdn.rawgit.com/gjacopo/bodylanguage/b245c372/d3force/peps01_slice.html) for quick rendering/visualisation**, though the display is much slower and some of its features are disabled.
+**To actually see the interactive visualisation, you need to download the webpage and display it locally in your browser.** You can get a preview of this page using `rawgit`: **check this [address](https://cdn.rawgit.com/eurostat/d3force4EUSILC/d3300d9f/peps01_slice.html) for quick rendering/visualisation**, though the display is much slower and some of its features are disabled.
 
 All _html/javascript/css_ resources used by the original _"Four ways to slice..."_ publication have been embedded in the webpage _peps01_slice.html_. The code has been modified accordingly so as to visualise  specifically the selected data  (see `javascript` variables `estat.rate_data_total`, `estat.category_list` and `estat.category_data`).
 
 We provide hereby two `Python` modules that will enable you to prepare the selected social indicators data for the visualisation:
-* [`data.py`](https://github.com/gjacopo/bodylanguage/blob/master/d3force/data.py) contains the classes/methods that will help you download the data from ESTAT website;
-* [`display.py`](https://github.com/gjacopo/bodylanguage/blob/master/d3force/display.py) contains the classes/methods that will enable you to format the data to be inserted in the webpage.
+* [`data.py`](https://github.com/eurostat/d3force4EUSILC/blob/master/data.py) contains the classes/methods that will help you download the data from ESTAT website;
+* [`display.py`](https://github.com/eurostat/d3force4EUSILC/blob/master/display.py) contains the classes/methods that will enable you to format the data to be inserted in the webpage.
 
 Note in particular that `display.py` implements some circle packing algorithms for optimally filling a circle with other circles: this is used to position the circle centers in the initial overall display. 
 
-Data requested for the visualisation proposed in _peps01_slice.html_ webpage are formatted in the [`peps01_slice.py`](https://github.com/gjacopo/bodylanguage/blob/master/d3force/peps01_slice.py) script. They are output as `json` but can be copied 'as is' in the webpage source code.
+Data requested for the visualisation proposed in _peps01_slice.html_ webpage are formatted in the [`peps01_slice.py`](https://github.com/eurostat/d3force4EUSILC/blob/master/peps01_slice.py) script. They are output as `json` but can be copied 'as is' in the webpage source code.
 
 **<a name="References"></a>References**
 
