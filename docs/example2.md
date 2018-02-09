@@ -6,6 +6,24 @@ The chord implementation presented here reuses the `d3` material introduced in a
 
 The webpage [_example2_icw.html_](https://github.com/eurostat/d3ex4es/blob/master/example2/example2_icw.html) shows the dependency between the various Eurostat (experimental) indicators on income, consumption and wealth (ICW) and the different concerned dimensions. See [below](#References) for further useful references.
 
+<table>
+<header>
+<td align="centre"><i>ICW</i> indicators</td>
+<td align="centre"><i>PEPS/PEES</i> indicators</td>
+</header>
+<tr>
+<td><kbd><img src="example2_icw_excerpt1.png" alt="Example 2 ICW excerpt 1" width="400"> </kbd></td>
+<td><kbd><img src="example2_icw_excerpt2.png" alt="Example 2 ICW excerpt 2" width="400"> </kbd></td>
+</tr>
+<header>
+<td align="centre">(far too many) <i>ILC</i> indicators</td>
+</header>
+<tr>
+<td><kbd><img src="example2_icw_excerpt3.png" alt="Example 2 ICW excerpt 3" width="400"> </kbd></td>
+</tr>
+</table>
+
+
 You can get a preview of this page using `rawgit`: **check this [address](https://cdn.rawgit.com/eurostat/d3ex4es/15d30510/example2/example2_icw_rawgit.html) for direct rendering**.
 
 ###### <a name="Usage"></a>Usage
