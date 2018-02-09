@@ -8,8 +8,8 @@ The webpage [_example2_icw.html_](https://github.com/eurostat/d3ex4es/blob/maste
 
 <table>
 <header>
-<td align="centre"><i>ICW indicators</i></td>
-<td align="centre"><i>PEPS/PEES indicators</code></td>
+<td align="centre" width="400"><i>ICW indicators</i></td>
+<td align="centre" width="400"><i>PEPS/PEES indicators</code></td>
 </header>
 <tr>
 <td><kbd><img src="example2_icw_excerpt1.png" alt="Example 2 ICW excerpt 1" width="400"> </kbd></td>
