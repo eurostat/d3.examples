@@ -10,11 +10,11 @@ The webpage [_example1_peps01.html_](https://github.com/eurostat/d3ex4es/blob/ma
 <table>
 <tr>
 <td><kbd><img src="example1_peps01_excerpt1.png" alt="Example 1 PEPS01 excerpt 1" width="400"> </kbd></td>
-<td><kbd><img src="example2_peps01_excerpt2.png" alt="Example 1 PEPS01 excerpt 2" width="400"> </kbd></td>
+<td><kbd><img src="example1_peps01_excerpt2.png" alt="Example 1 PEPS01 excerpt 2" width="400"> </kbd></td>
 </tr>
 <tr>
 <td><kbd><img src="example1_peps01_excerpt3.png" alt="Example 1 PEPS01 excerpt 3" width="400"> </kbd></td>
-<td><kbd><img src="example2_peps01_excerpt4.png" alt="Example 1 PEPS01 excerpt 4" width="400"> </kbd></td>
+<td><kbd><img src="example1_peps01_excerpt4.png" alt="Example 1 PEPS01 excerpt 4" width="400"> </kbd></td>
 </tr>
 </table>
 
