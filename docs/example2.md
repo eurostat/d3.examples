@@ -1,6 +1,6 @@
 ##### Example 2 - `d3`-based chord diagram visualisation of metadata
 
-###### <a name="About"></a>Description
+###### <a name="Description"></a>Description
 
 <table>
 <header>
@@ -19,10 +19,11 @@
 </tr>
 </table>
 
+You can get a preview of this page using `rawgit`: **check this [address](https://cdn.rawgit.com/eurostat/d3ex4es/30d73f3b/example2/example2_icw_ragwit.html) for direct rendering**.
 
 ###### <a name="Usage"></a>Usage
 
-**To display the chord diagram, you need to: 
+To display the chord diagram, you need to: 
 * download the source webpage [example1_icw.html](https://github.com/eurostat/d3ex4es/blob/master/example2/example1_icw.html), as well as the `Javascript` scripts 
 [d3.layout.chord.sort.js](https://github.com/eurostat/d3ex4es/blob/master/example2/d3.layout.chord.sort.js) and
 [d3.layout.chord.sort.js](https://github.com/eurostat/d3ex4es/blob/master/example2/d3.layout.chord.sort.js), _(ii)_
@@ -31,9 +32,7 @@
 [INDICATOR.json](https://github.com/eurostat/d3ex4es/blob/master/example2/INDICATOR.json) and
 [INDICATORxDIMENSION.json](https://github.com/eurostat/d3ex4es/blob/master/example2/INDICATORxDIMENSION.json)
 
-then, you display it locally in your browser.** You can get a preview of this page using `rawgit`: 
-**check this [address](https://cdn.rawgit.com/eurostat/d3ex4es/30d73f3b/example2/example2_icw_ragwit.html) for direct rendering**, 
-though the display is much slower.
+then, you display it locally in your browser.** 
 
 ###### <a name="References"></a>References
 
