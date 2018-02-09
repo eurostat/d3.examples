@@ -10,10 +10,10 @@ This page provides relevant tools used to prepare selected social indicator data
 
 **Description**
 
-The webpage [_peps01_slice.html_](https://github.com/eurostat/d3force4EUSILC/blob/master/peps01_slice.html) illustrates some important figures related to ESTAT indicator _ilc_peps01_ on *people at risk of poverty or social exclusion* by age and sex (see also the  news release [below](#References)). The front page (first tab selected) looks like this:
+The webpage [_example1_peps01.html_](https://github.com/eurostat/d3force4EUSILC/blob/master/example1/example1_peps01.html) illustrates some important figures related to ESTAT indicator _ilc_peps01_ on *people at risk of poverty or social exclusion* by age and sex (see also the  news release [below](#References)). The front page (first tab selected) looks like this:
 <table>
 <tr>
-<td><kbd><img src="https://github.com/eurostat/d3force4EUSILC/blob/master/docs/peps01-d3force.png" alt="PEPS01 display"></kbd></td>
+<td><kbd><img src="https://github.com/eurostat/d3force4EUSILC/blob/master/docs/example1_peps01.png" alt="PEPS01 display"></kbd></td>
 </tr>
 </table>
 
@@ -29,7 +29,7 @@ We provide hereby two `Python` modules that will enable you to prepare the selec
 
 Note in particular that `display.py` implements some circle packing algorithms for optimally filling a circle with other circles: this is used to position the circle centers in the initial overall display. 
 
-Data requested for the visualisation proposed in _peps01_slice.html_ webpage are formatted in the [`peps01_slice.py`](peps01_slice.py) script. They are output as `json` but can be copied 'as is' in the webpage source code.
+Data requested for the visualisation proposed in _example1_peps01.html_ webpage are formatted in the [`example1_peps01.py`](example1/example1_peps01.py) script. They are output as `json` but can be copied 'as is' in the webpage source code.
 
 **<a name="References"></a>References**
 
