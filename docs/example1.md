@@ -24,11 +24,11 @@ All _html/javascript/css_ resources used by the original _"Four ways to slice...
 
 We provide hereby two `Python` modules that will enable you to prepare the selected social indicators data for the visualisation:
 * [`data.py`](https://github.com/eurostat/d3ex4es/blob/master/data.py) contains the classes/methods that will help you download the data from ESTAT website;
-* [`display_force.py`](https://github.com/eurostat/d3ex4es/blob/master/example1/display_force.py) contains the classes/methods that will enable you to format the data to be inserted in the webpage.
+* [`display_force.py`](https://github.com/eurostat/d3ex4es/blob/master/display_force.py) contains the classes/methods that will enable you to format the data to be inserted in the webpage.
 
 Note in particular that `display_force.py` implements some circle packing algorithms for optimally filling a circle with other circles: this is used to position the circle centers in the initial overall display. 
 
-Data requested for the visualisation proposed in _example1_peps01.html_ webpage are formatted in the [`example1_peps01.py`](https://github.com/eurostat/d3ex4es/blob/master/example1/example1_peps01.py) script. They are output as `json` but can be copied 'as is' in the webpage source code.
+Data requested for the visualisation proposed in _example1_peps01.html_ webpage are formatted in the [`example1_peps01.py`](https://github.com/eurostat/d3ex4es/blob/master/example1_peps01.py) script. They are output as `json` but can be copied 'as is' in the webpage source code.
 
 ###### <a name="References"></a>References
 
