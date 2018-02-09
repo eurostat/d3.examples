@@ -16,8 +16,8 @@ This page provides few examples of web-based visualisation of the data and metad
 <td align="centre">Example 2</td>
 </header>
 <tr>
-<td><kbd><img src="docs/example1_peps01.png" alt="doc SAS" width="400"> </kbd></td>
-<td><kbd><img src="docs/example2_icw.png" alt="doc R" width="400"> </kbd></td>
+<td><kbd><img src="docs/example1_peps01.png" alt="Example 1 PEPS01" width="400"> </kbd></td>
+<td><kbd><img src="docs/example2_icw.png" alt="Example 2 ICW" width="400"> </kbd></td>
 </tr>
 </table>
 
