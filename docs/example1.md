@@ -35,6 +35,6 @@ Data requested for the visualisation proposed in _example1_peps01.html_ webpage 
 * S. Carter's `d3-force`-based display: ["Four ways to slice Obama's 2013 budget proposal"](http://www.nytimes.com/interactive/2012/02/13/us/politics/2013-budget-proposal-graphic.html), _New York Times_.
 * `d3-force` layout [package](https://github.com/d3/d3-force).
 * Eurostat press release 199/2016: ["The share of persons at risk of poverty or social exclusion in the EU back to its pre-crisis level"](http://ec.europa.eu/eurostat/documents/2995521/7695750/3-17102016-BP-EN.pdf).
-* Eurostat statistical explained [webpage](http://ec.europa.eu/eurostat/statistics-explained/index.php/People_at_risk_of_poverty_or_social_exclusion) on _People at risk of poverty or social exclusion_.
+* Eurostat _Statistical Explained_ [webpage](http://ec.europa.eu/eurostat/statistics-explained/index.php/People_at_risk_of_poverty_or_social_exclusion) on _People at risk of poverty or social exclusion_.
 * Eurostat bubble chart: ["My country in a bubble"](http://ec.europa.eu/eurostat/cache/BubbleChart/).
 * Algorithm for [circle packing](http://mathworld.wolfram.com/CirclePacking.html), _Wolfram_.
