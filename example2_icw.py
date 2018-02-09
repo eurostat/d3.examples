@@ -18,8 +18,8 @@ import os, re#analysis:ignore
 import metabase
 import adjacency_chord
 
-
-INDICATOR_KEEP  = ['ilc_peps', 'ilc_pees'] #['icw'] # ['ilc_peps', 'ilc_pees']
+# control the indicators you want to select
+INDICATOR_KEEP  = ['icw'] # ['ilc_peps', 'ilc_li']
 
 DIMENSION_DROP  = ['geo', 'time']
 
