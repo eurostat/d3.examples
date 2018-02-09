@@ -16,9 +16,9 @@ The webpage [_example1_peps01.html_](https://github.com/eurostat/d3ex4es/blob/ma
 </tr>
 </table>
 
-###### <a name="Usage"></a>Usage
-
 **To actually see the interactive visualisation, you need to download the webpage and display it locally in your browser.** You can get a preview of this page using `rawgit`: **check this [address](https://cdn.rawgit.com/eurostat/d3ex4es/01d12b8f/example1/example1_peps01.html) for direct rendering**, though the display is much slower and some of its features are disabled.
+
+###### <a name="Usage"></a>Usage
 
 All _html/javascript/css_ resources used by the original _"Four ways to slice..."_ publication have been embedded in the webpage _example1_peps01.html_. The code has been modified accordingly so as to visualise  specifically the selected data  (see `javascript` variables `estat.rate_data_total`, `estat.category_list` and `estat.category_data`).
 
