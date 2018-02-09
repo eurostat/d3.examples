@@ -1,0 +1,1 @@
+var Dimension = ['age', 'coicop', 'deg_urb', 'duration', 'hhcomp', 'hhtype', 'ind_type', 'isced11', 'lev_depr', 'lev_diff', 'lev_expn', 'quant_expn', 'quant_inc', 'quantile', 'stk_flow', 'unit', 'workint', ''];
