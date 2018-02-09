@@ -4,6 +4,17 @@ This page provides few examples of web-based visualisations of the data and meta
 
 ##### Table of Contents
 
+<table>
+<header>
+<td align="centre">Example 1</td>
+<td align="centre">Example 2</td>
+</header>
+<tr>
+<td><kbd><img src="docs/example1_peps01.png" alt="Example 1 PEPS01" width="400"> </kbd></td>
+<td><kbd><img src="docs/example2_icw.png" alt="Example 2 ICW" width="400"> </kbd></td>
+</tr>
+</table>
+
 * [example 1](example1.md) provides with an example of interactive display of selected social indicator based on [`d3-force` layout](https://github.com/d3/d3-force).
 * [example 2](example2.md) shows how chord diagrams can be used to represent metadata.  
 
