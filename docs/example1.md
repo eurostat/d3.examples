@@ -23,8 +23,8 @@ The webpage [_example1_peps01.html_](https://github.com/eurostat/d3ex4es/blob/ma
 All _html/javascript/css_ resources used by the original _"Four ways to slice..."_ publication have been embedded in the webpage _example1_peps01.html_. The code has been modified accordingly so as to visualise  specifically the selected data  (see `javascript` variables `estat.rate_data_total`, `estat.category_list` and `estat.category_data`).
 
 We provide hereby two `Python` modules that will enable you to prepare the selected social indicators data for the visualisation:
-* [`data.py`](https://github.com/eurostat/d3force4EUSILC/blob/master/data.py) contains the classes/methods that will help you download the data from ESTAT website;
-* [`display_force.py`](https://github.com/eurostat/d3force4EUSILC/blob/master/display.py) contains the classes/methods that will enable you to format the data to be inserted in the webpage.
+* [`data.py`](https://github.com/eurostat/d3ex4es/blob/master/data.py) contains the classes/methods that will help you download the data from ESTAT website;
+* [`display_force.py`](https://github.com/eurostat/d3ex4es/blob/master/example1/display_force.py) contains the classes/methods that will enable you to format the data to be inserted in the webpage.
 
 Note in particular that `display_force.py` implements some circle packing algorithms for optimally filling a circle with other circles: this is used to position the circle centers in the initial overall display. 
 
