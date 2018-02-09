@@ -2,7 +2,7 @@
 
 ###### <a name="Description"></a>Description
 
-This page provides relevant tools used to prepare selected social indicator data downloaded from [ESTAT website](http://ec.europa.eu/eurostat/data/database) and provide an interactive display based on [`d3-force` layout](https://github.com/d3/d3-force). These tools aim at reusing the material developed by S.Carter for the _New York Times_ publication mentioned below [below](#References) so as to provide with a similar visualisation.
+This page provides relevant tools used to prepare selected social indicator data downloaded from [ESTAT website](http://ec.europa.eu/eurostat/data/database) and provide an interactive display based on [`d3-force` layout](https://github.com/d3/d3-force). These tools aim at reusing the material developed by S.Carter for the _New York Times_ publication mentioned [below](#References) so as to provide with a similar visualisation.
 
 The webpage [_example1_peps01.html_](https://github.com/eurostat/d3ex4es/blob/master/example1/example1_peps01.html) illustrates some important figures related to ESTAT indicator _ilc_peps01_ on *people at risk of poverty or social exclusion* by age and sex (see also the  news release [below](#References)). The different pages are shown below:
 <table>
