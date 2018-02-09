@@ -10,8 +10,8 @@ This page provides few examples of web-based visualisations of the data and meta
 <td align="centre">Example 2</td>
 </header>
 <tr>
-<td><kbd><img src="docs/example1_peps01.png" alt="Example 1 PEPS01" width="400"> </kbd></td>
-<td><kbd><img src="docs/example2_icw.png" alt="Example 2 ICW" width="400"> </kbd></td>
+<td><kbd><img src="example1_peps01.png" alt="Example 1 PEPS01" width="400"> </kbd></td>
+<td><kbd><img src="example2_icw.png" alt="Example 2 ICW" width="400"> </kbd></td>
 </tr>
 </table>
 
