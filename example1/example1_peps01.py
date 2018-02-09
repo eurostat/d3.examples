@@ -31,11 +31,11 @@ except:
     except:
         warnings.warn("Package simplejson/json not imported")
 
-import data
-import display
+from .. import data
+from . import display_force
 #from data import EstatDataFrame
 #from data import GEO_LABELS, SEX_LABELS, UNIT_LABELS, AGE_LABELS
-#from display import PackedCircles, ChartWindow
+#from display_force import PackedCircles, ChartWindow
         
 #from matplotlib import pyplot as plt
  
@@ -144,13 +144,13 @@ df_status['id'] = len(df_status) - np.array(df_status['pc_pop']).argsort().argso
 data_status = df_status.to_dict(orient="records")
 
 # prepare the charter considering the display window (with default configuration)
-win_status = display.ChartWindow(rrange=[1,90], domain=[0,10000]) 
+win_status = display_force.ChartWindow(rrange=[1,90], domain=[0,10000]) 
 
 # (x,y) "total" positions for total overlay
 rates_status = [np.int(win_status.rScale(d[TIME[1]]))                 \
                if ~np.isnan(d[TIME[1]]) else 1. for d in data_status] 
 # note: 2015 rates are sorted already in descending order already
-t = display.PackedCircles(rad=rates_status)
+t = display_force.PackedCircles(rad=rates_status)
 t.position()
 t.plot()
 circles = [t.circles[i][:2]                             \
@@ -166,7 +166,7 @@ centre = sorted([(int(circ[0]),int(circ[1])) for circ in circles], key=lambda it
 ###############################################################################              
 ## prepare the charter for display by geo area
 
-win_geo = display.ChartWindow(rowPos=[275+i*175 for i in range(7)],
+win_geo = display_force.ChartWindow(rowPos=[275+i*175 for i in range(7)],
                               width=970, height=1300, 
                               rrange=[1,90], domain=[0,10000]) 
 
@@ -176,13 +176,13 @@ for geo in GEO:
     array = [d for d in data_status if d['short_geo']==geo]
     rates = [np.int(win_geo.rScale(d[TIME[1]])) if ~np.isnan(d[TIME[1]]) else 1.  \
             for d in array]
-    #c = display.PackedCircles(rad=rates)
+    #c = display_force.PackedCircles(rad=rates)
     #c.position()
     #circles = [c.circles[i][:2] for i in sorted(range(len(c.circles)), key=lambda k: c.circles[k][2], reverse=True)]
     #mx0, my0 = min([circ[0] for circ in circles]), min([circ[1] for circ in circles])
     #cent_sex = [(int(circ[0]),int(circ[1]-my0+1)) for circ in circles]
     pos = posLookup[geo]
-    cent_sex = [(-int(r/2) if i==1 else int(r/2), int(display.ChartWindow.SHIFT/5)) \
+    cent_sex = [(-int(r/2) if i==1 else int(r/2), int(display_force.ChartWindow.SHIFT/5)) \
                  for i, r in enumerate(rates)]
     #cent_sex = [(int(r/2), 0) for i, r in enumerate(rates)]
     [d['positions'].update({'geo':{'x':pos['x'] + pos['offx'] - (cent_sex[i][0]),   \
@@ -224,13 +224,13 @@ df_break = df[~(df['sex']=='T')                         \
 df_break['id'] = len(df_break) - np.array(df_break['change']).argsort().argsort() - 1
 data_break = df_break.to_dict(orient="records")
 
-break_win = display.ChartWindow(domain=[0,4000])
+break_win = display_force.ChartWindow(domain=[0,4000])
  
 rates_break = [np.int(break_win.rScale(d[TIME[1]]))      \
                if ~np.isnan(d[TIME[1]]) else 1.          \
                 for d in data_break] 
                 
-t = display.PackedCircles(rad=rates_break)
+t = display_force.PackedCircles(rad=rates_break)
 t.position()
 t.plot()
 circles = [t.circles[i][:2]                             \
@@ -257,7 +257,7 @@ cat_age_data = [{"label": data.AGE_LABELS[age],
              } for age in AGE if age!='TOTAL']
 cat_age_list = list([data.AGE_LABELS[age] for age in data.AGE_LABELS.keys() if age!='TOTAL'])    
 
-age_win = display.ChartWindow(domain=[0,4000]) 
+age_win = display_force.ChartWindow(domain=[0,4000]) 
 
 # (x,y) age positions for age table
 posLookup = age_win.table_cells(AGE)
@@ -267,7 +267,7 @@ for age in AGE:
     array_break = [d for d in data_age if d['age']==data.AGE_LABELS[age]]
     rates = [np.int(age_win.rScale(d[TIME[1]])) if ~np.isnan(d[TIME[1]]) else 1.  \
             for d in array_break]
-    c = display.PackedCircles(rad=rates)
+    c = display_force.PackedCircles(rad=rates)
     c.position()
     circles = [c.circles[i][:2] for i in sorted(range(len(c.circles)), key=lambda k: c.circles[k][2], reverse=True)]
     mx0, my0 = min([circ[0] for circ in circles]), min([circ[1] for circ in circles])

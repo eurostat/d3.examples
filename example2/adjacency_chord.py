@@ -35,7 +35,7 @@ except:
     except:
         warnings.warn("Package simplejson/json not imported")
 
-from . import metabase
+from .. import metabase
 
 
 #%%      
@@ -97,23 +97,4 @@ def adjacency2json(df_adjacency, **kwargs):
             s = str(indicators)    
             # a: f.write('var Indicator = %s;' % s.replace('dumb',''))
             f.write('var Indicator = %s;' % s.replace('dumber',''))
-
-
-#%%      
-#==============================================================================
-# CHORD SCRIPTS
-#==============================================================================
-
-INDICATOR_KEEP  = ['icw'] # ['ilc_peps', 'ilc_pees']
-
-DIMENSION_DROP  = ['geo', 'time']
-
-INDICATORxDIMENSION = '%sx%s' % (metabase.INDICATOR, metabase.DIMENSION)
-ODIR            = '.'
-
-[dimensions, indicators, df_adjacency] = \
-    meta2adjacency(ind_keep = INDICATOR_KEEP, dim_drop = DIMENSION_DROP)
-adjacency2json(df_adjacency, dim=dimensions, ind=indicators,
-               oifn = metabase.DIMENSION, odfn = metabase.DIMENSION, 
-               oixdfn = INDICATORxDIMENSION, odir=ODIR)
 
