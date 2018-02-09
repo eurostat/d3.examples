@@ -4,15 +4,14 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 	<title>Metabase exploration: dimensions versus indicators</title>
 
-    <script type="text/javascript" src="https://cdn.rawgit.com/eurostat/d3ex4es/c3c2649c/example2/INDICATORxDIMENSION.json"></script>
-	<script type="text/javascript" src="https://cdn.rawgit.com/eurostat/d3ex4es/c3c2649c/example2/INDICATOR.json"></script>
-	<script type="text/javascript" src="https://cdn.rawgit.com/eurostat/d3ex4es/c3c2649c/example2/DIMENSION.json"></script>
+	<script type="text/javascript" src="INDICATORxDIMENSION.json"></script>
+	<script type="text/javascript" src="INDICATOR.json"></script>
+	<script type="text/javascript" src="DIMENSION.json"></script>
 
 	<!-- D3.js -->	
     <script src="http://d3js.org/d3.v3.js"></script>
-
-    <script src="https://cdn.rawgit.com/eurostat/d3ex4es/c3c2649c/example2/d3.layout.chord.sort.js"></script>
-    <script src="https://cdn.rawgit.com/eurostat/d3ex4es/c3c2649c/example2/d3.stretched.chord.js"></script>
+	<script src="d3.stretched.chord.js"></script>
+	<script src="d3.layout.chord.sort.js"></script>
 	
 	<!-- jQuery -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -69,12 +68,12 @@
 		}
 	  </style>
   </head>
-	
+
   <body>
     <font face = "Times New Roman">
     <br>
-    <div >
-        <div align="left">
+    <div class="module insetHFullWidth">
+        <div class="storyHeader" align="left">
             <h1>Metabase exploration: dimensions <i>versus</i> indicators</h1>
         </div>
         <div align="left" style="width: 100%;">
@@ -99,7 +98,7 @@
             </div>
     </div>
     </font>
-
+    
     <div id="chart"></div>
 	
 	<div>
@@ -110,19 +109,24 @@
 		between these entities. 
 		</div>
 	</div>
+	
+    <script src="script.js"></script>
     
     <br><hr>
+                <div class="insetHFullWidth">
+                  <div id="interactiveFooter" class="opposingFloatControl wrap">
+                    <div class="metaData element1">
                       <div class="module"> <span class="byline">
                           <!--By Jacopo Grazzini <br>--> This template reuses and adapts
                           the <a href="http://d3js.org">d3.js</a>-based material developed by <a href="https://bl.ocks.org/nbremer"><b>N.Bremer</b></a>
-                          in the tutorial on visualisation of 
+                          in the visualisation tutorial on 
                           <b><a href="https://www.visualcinnamon.com/2015/08/stretched-chord.html">"how to create a flow diagram with a circular Twist"</a></b>.
                           <br>
-                        </span>
-		      </div>
-
-    <script src="https://cdn.rawgit.com/eurostat/d3ex4es/c3c2649c/example2/script.js"></script>
-      
+                        </span><span class="refer feedback"></span></div>
+                    </div>
+                  </div>
+                </div>
+    
 	
   </body>
 </html>
