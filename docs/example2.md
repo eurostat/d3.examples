@@ -13,10 +13,10 @@
 ###### <a name="Usage"></a>Usage
 
 **To display the chord diagram, you need to: 
-# download the source webpage [example1_icw.html](https://github.com/eurostat/d3ex4es/blob/master/example2/example1_icw.html), as well as the `Javascript` scripts 
+* download the source webpage [example1_icw.html](https://github.com/eurostat/d3ex4es/blob/master/example2/example1_icw.html), as well as the `Javascript` scripts 
 [d3.layout.chord.sort.js](https://github.com/eurostat/d3ex4es/blob/master/example2/d3.layout.chord.sort.js) and
 [d3.layout.chord.sort.js](https://github.com/eurostat/d3ex4es/blob/master/example2/d3.layout.chord.sort.js), _(ii)_
-# download the associated `JSON` files (which are actually also `Javascript` scripts...)
+* download the associated `JSON` files (which are actually also `Javascript` scripts...)
 [DIMENSION.json](https://github.com/eurostat/d3ex4es/blob/master/example2/DIMENSION.json), 
 [INDICATOR.json](https://github.com/eurostat/d3ex4es/blob/master/example2/INDICATOR.json) and
 [INDICATORxDIMENSION.json](https://github.com/eurostat/d3ex4es/blob/master/example2/INDICATORxDIMENSION.json)
@@ -29,4 +29,4 @@ though the display is much slower.
 
 *  N. Bremer's `d3`-based tutorial on ["How to create a flow diagram with a circular Twist"](https://www.visualcinnamon.com/2015/08/stretched-chord.html).
 * [`d3-chord`](https://github.com/d3/d3-chord).
-* Eurostat experimental statistics webpage on [income, Consumption and Wealth](http://ec.europa.eu/eurostat/web/experimental-statistics/income-consumption-and-wealth].
+* Eurostat _Experimental Statistics_ [webpage](http://ec.europa.eu/eurostat/web/experimental-statistics/income-consumption-and-wealth) on _Income, Consumption and Wealth_.
