@@ -23,7 +23,7 @@ The webpage [_example2_icw.html_](https://github.com/eurostat/d3ex4es/blob/maste
 </tr>
 </table>
 
-You can get a preview of this page using `rawgit`: **check this [address](https://cdn.rawgit.com/eurostat/d3ex4es/30d73f3b/example2/example2_icw_ragwit.html) for direct rendering**.
+You can get a preview of this page using `rawgit`: **check this [address](https://cdn.rawgit.com/eurostat/d3ex4es/15d30510/example2/example2_icw.html) for direct rendering**.
 
 ###### <a name="Usage"></a>Usage
 
