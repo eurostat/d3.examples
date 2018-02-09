@@ -8,6 +8,12 @@ Applying `d3.js` framework for handling and exploring (Javascript/Python) Eurost
 
 This page provides few examples of web-based visualisation of the data and metadata disseminated on [ESTAT website](http://ec.europa.eu/eurostat/data/database). It uses for that purpose some already existing templates based on the `d3.js` library (_e.g._ see gallery referenced [below](#References)). Besides the example webpages, the material used to handle the extracted (meta)data and prepare (select/filter/reshape) them for visualisation is also provided.
 
+<table align="center">
+    <tr> <td align="left"><i>documentation</i></td> <td align="left">available at: https://eurostat.github.io/d3ex4es/</td> </tr> 
+    <tr> <td align="left"><i>since</i></td> <td align="left">2017</td> </tr> 
+    <tr> <td align="left"><i>license</i></td> <td align="left"><a href="https://joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdfEUPL">EUPL</a> </td> </tr> 
+</table>
+
 **Description**
 
 <table>
