@@ -18,7 +18,7 @@ This page provides few examples of web-based visualisations of the data and meta
 * [example 1](example1.md) provides with an example of interactive display of selected social indicator based on [`d3-force` layout](https://github.com/d3/d3-force).
 * [example 2](example2.md) shows how chord diagrams can be used to represent metadata.  
 
-##### <a name="References"></a>References**
+##### <a name="References"></a>References
 
 * `d3.js` [website](https://d3js.org/).
 * `d3.js` galleries: [wiki](https://github.com/d3/d3/wiki/Gallery) and [_d3list_](http://christopheviau.com/d3list/gallery.html).
