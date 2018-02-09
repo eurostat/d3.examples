@@ -43,8 +43,7 @@ Through `rawgit`, a **preview of this webpage is made available at this [address
 
 **<a name="References"></a>References**
 
-* `d3.js` [website](https://d3js.org/).
-* `d3.js` galleries: [wiki](https://github.com/d3/d3/wiki/Gallery) and [_d3list_](http://christopheviau.com/d3list/gallery.html).
+* `d3.js` [website](https://d3js.org/) and galleries: [wiki](https://github.com/d3/d3/wiki/Gallery) and [_d3list_](http://christopheviau.com/d3list/gallery.html).
 * Eurostat dissemination [website](http://ec.europa.eu/eurostat/data/database).
 * Eurostat bulk download [facility](http://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing).
 
