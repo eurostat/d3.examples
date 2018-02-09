@@ -28,7 +28,7 @@ We provide hereby two `Python` modules that will enable you to prepare the selec
 
 Note in particular that `display_force.py` implements some circle packing algorithms for optimally filling a circle with other circles: this is used to position the circle centers in the initial overall display. 
 
-Data requested for the visualisation proposed in _example1_peps01.html_ webpage are formatted in the [`example1_peps01.py`](https://github.com/eurostat/d3ex4es/blob/master/example1_peps01.py) script. They are output as `json` but can be copied 'as is' in the webpage source code.
+Data requested for the visualisation proposed in _example1_peps01.html_ webpage are formatted in the [`example1_peps01.py`](https://github.com/eurostat/d3ex4es/blob/master/example1_peps01.py) script. They are output as `JSON` but can be copied 'as is' in the webpage source code.
 
 ###### <a name="References"></a>References
 
