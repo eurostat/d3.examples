@@ -1,7 +1,7 @@
-d3force4EUSILC
-==============
+d3ex4es
+=======
 
-Applying `d3-force` layout for slicing and exploring EU-SILC data.
+Applying `d3.js` framework for handling and exploring (Javascript/Python) Eurostat data and metadata.
 ---
 
 **About**
