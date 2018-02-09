@@ -31,8 +31,8 @@ except:
     except:
         warnings.warn("Package simplejson/json not imported")
 
-from .. import data
-from . import display_force
+import data
+import display_force
 #from data import EstatDataFrame
 #from data import GEO_LABELS, SEX_LABELS, UNIT_LABELS, AGE_LABELS
 #from display_force import PackedCircles, ChartWindow

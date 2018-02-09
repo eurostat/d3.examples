@@ -10,6 +10,7 @@ Created on Tue Jan 30 09:20:49 2018
 from __future__ import print_function
 
 import os, re#analysis:ignore
+import os.path
 import warnings
 
 from collections import OrderedDict
@@ -87,6 +88,8 @@ class Data(object):
         path, base = kwargs.get('base'), kwargs.get('base', self.basename)
         if path is not None:
             base = '%s/%s' % (path, base)
+        if not os.path.exists(base):
+            return
         self.__table = pd.read_csv(base, header=None, sep=self.SEP, names=self.NAMES)
 
     #/************************************************************************/
@@ -96,7 +99,7 @@ class Data(object):
         if not url.startswith('http'):  url = "http://%s" % url
         if 'path' in kwargs:            url = "%s/%s" % (url, kwargs.pop('path'))
         if 'query' in kwargs:           url = "%s/%s" % (url, kwargs.pop('query'))
-        kw = OrderedDict([('sort',self.SORT), ('file', self.basefile)])
+        kw = OrderedDict([('sort',self.SORT), ('file', self.basename)])
         _izip_replicate = lambda d : [[(k,i) for i in d[k]] if isinstance(d[k], (tuple,list))   \
             else (k, d[k])  for k in d]          
         filters = '&'.join(['{k}={v}'.format(k=k, v=v) for (k, v) in _izip_replicate(kw)])
@@ -150,7 +153,7 @@ class Data(object):
         if  not indicator_keep in ([],None):
             # limit the dataset to SILC data only
             regexp = '|'.join(indicator_keep)
-            self.__table = df.loc[df[INDICATOR].str.contains(regexp, regex=True)]
+            df = df.loc[df[INDICATOR].str.contains(regexp, regex=True)]
             #search_text = lambda text: bool(re.search('%s' % SILC_KEYWORD, text))
             #df = df.loc[df['indicator'].map(search_text) == True]
         

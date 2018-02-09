@@ -12,9 +12,6 @@ from __future__ import print_function
 import os, re#analysis:ignore
 import warnings
 
-from collections import OrderedDict
-from functools import reduce
-
 try:
     import numpy as np#analysis:ignore
 except:
@@ -35,7 +32,7 @@ except:
     except:
         warnings.warn("Package simplejson/json not imported")
 
-from .. import metabase
+import metabase
 
 
 #%%      
@@ -43,8 +40,11 @@ from .. import metabase
 # CHORD FUNCTIONS
 #==============================================================================
 
+def __filedirexists(file):
+    return os.path.exists(os.path.exists(os.path.dirname(file)))
+
 def meta2adjacency(**kwargs):    
-    metadata = metabase.data()
+    metadata = metabase.Data()
     metadata.download()        
     df = metadata.filter(**kwargs)
      
@@ -77,22 +77,27 @@ def adjacency2json(df_adjacency, **kwargs):
     oifn, odfn = kwargs.pop('oifn', metabase.INDICATOR), kwargs.pop('odfn', metabase.DIMENSION)
     oixdfn = kwargs.pop('oixdfn','%sx%s' % (metabase.INDICATOR, metabase.DIMENSION))
 
-    with open('%s/%s.%s' % (odir, oixdfn, ofmt), 'w') as f:
-        #s = str(df_adjacency.values.tolist())    
-        #f.write('var matrix = %s;' % s.replace('-1','emptyStroke'))
-        f.write('var matrix = %s;' % df_adjacency.values.tolist())
+    ofn = '%s/%s.%s' % (odir, oixdfn, ofmt)
+    if __filedirexists(ofn):
+        with open(ofn, 'w') as f:
+            #s = str(df_adjacency.values.tolist())    
+            #f.write('var matrix = %s;' % s.replace('-1','emptyStroke'))
+            f.write('var matrix = %s;' % df_adjacency.values.tolist())
     #df_adjacency.to_json('%s/%s.%s' % (odir, oixdfn, ofmt), orient='split')
     #with open('%s/%s.%s' % (odir, oixdfn, ofmt), 'w') as f:
     #    json.dump(df_adjacency.values.tolist())
     
-    if dimensions is not None:
-        with open('%s/%s.%s' % (odir, odfn, ofmt), 'w') as f:
+    ofn = '%s/%s.%s' % (odir, odfn, ofmt)
+    if __filedirexists(ofn) and dimensions is not None:
+        with open(ofn, 'w') as f:
             # json.dump('var %s = %s;' % (DIMENSION,dimensions), f)
             s = str(dimensions)    
             #a: f.write('var Dimension = %s;' % s.replace('dumber',''))
             f.write('var Dimension = %s;' % s.replace('dumb',''))
-    if indicators is not None:
-        with open('%s/%s.%s' % (odir, oifn, ofmt), 'w') as f:
+            
+    ofn = '%s/%s.%s' % (odir, oifn, ofmt)
+    if __filedirexists(ofn) and indicators is not None:
+        with open(ofn, 'w') as f:
             # json.dump({INDICATOR:indicators}, f)
             s = str(indicators)    
             # a: f.write('var Indicator = %s;' % s.replace('dumb',''))

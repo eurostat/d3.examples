@@ -35,16 +35,19 @@ except:
     except:
         warnings.warn("Package simplejson/json not imported")
 
-from . import metabase
+import metabase
 
 
 #%%      
 #==============================================================================
 # CHORD FUNCTIONS
 #==============================================================================
+
+def __filedirexists(file):
+    return os.path.exists(os.path.exists(os.path.dirname(file)))
  
 def meta2formats(**kwargs):
-    metadata = metabase.data()
+    metadata = metabase.Data()
     metadata.download()        
     df = metadata.filter(**kwargs)
     
@@ -90,8 +93,10 @@ def dimlab2json(unique_formats, formats, **kwargs):
     olxffn = kwargs.pop('olxffn','%sVALUExFORMAT' % metabase.LABEL)
     labcols = kwargs.pop('labcols', ['%s' % metabase.LABEL,])
     
-    with open('%s/%s.%s' % (odir, odxffn, 'json'), 'w') as f:
-        json.dump(unique_formats, f, indent=4, sort_keys=True)
+    ofn = '%s/%s.%s' % (odir, odxffn, 'json')
+    if __filedirexists(ofn):
+        with open(ofn, 'w') as f:
+            json.dump(unique_formats, f, indent=4, sort_keys=True)
  
     # solution 2 - incomplete
     #inddimlab['dimlabel'] = inddimlab[['dimension', 'labelcat']].astype(str).apply(lambda x: '_'.join(x), axis=1)
@@ -142,16 +147,20 @@ def dimlab2json(unique_formats, formats, **kwargs):
     fmtxind['format'] = fmtxind[[metabase.DIMENSION,'labelcat']].astype(str).apply(lambda x: '_fmt{}_{}_'.format(x[1],x[0]), axis=1)
     fmtxind = fmtxind[['format'] + list(indicators)]
     
-    with open('%s/%s.%s' % (odir, ofxifn, ofmt), 'w') as f:
-        fmtxind.to_csv(f, index=False, header=True, sep=',', float_format='%d', na_rep='')
+    ofn = '%s/%s.%s' % (odir, ofxifn, ofmt)
+    if __filedirexists(ofn):
+        with open(ofn, 'w') as f:
+            fmtxind.to_csv(f, index=False, header=True, sep=',', float_format='%d', na_rep='')
     
     # build the table providing for every indicator and every dimension 
     # the format used if it is actually the case
     indxdim = format_lists_cat.unstack(metabase.DIMENSION) #, fill_value=NaN)
     indxdim.columns = indxdim.columns.droplevel()
     
-    with open('%s/%s.%s' % (odir, oixdfn, ofmt), 'w') as f:
-        indxdim.to_csv(f, index=True, header=True, sep=',', float_format='%d', na_rep='')
+    ofn = '%s/%s.%s' % (odir, oixdfn, ofmt)
+    if __filedirexists(ofn):
+        with open(ofn, 'w') as f:
+            indxdim.to_csv(f, index=True, header=True, sep=',', float_format='%d', na_rep='')
 
     # for dim in dimensions:
     dim = 'age'    
@@ -164,8 +173,10 @@ def dimlab2json(unique_formats, formats, **kwargs):
     labvalxform[metabase.LABEL] = pd.Series(labels)
     labvalxform['variable'] = dim
     
-    with open('%s/%s_%s.%s' % (odir, olxffn, dim, ofmt), 'w') as f:
-        labvalxform.to_csv(f, index=False, header=True, sep=',', float_format='%d', na_rep='')
+    ofn = '%s/%s_%s.%s' % (odir, olxffn, dim, ofmt)
+    if __filedirexists(ofn):
+        with open(ofn, 'w') as f:
+            labvalxform.to_csv(f, index=False, header=True, sep=',', float_format='%d', na_rep='')
 
 #%%      
 #==============================================================================
