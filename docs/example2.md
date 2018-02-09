@@ -15,9 +15,6 @@ The webpage [_example2_icw.html_](https://github.com/eurostat/d3ex4es/blob/maste
 <td><kbd><img src="example2_icw_excerpt1.png" alt="Example 2 ICW excerpt 1" width="400"> </kbd></td>
 <td><kbd><img src="example2_icw_excerpt2.png" alt="Example 2 ICW excerpt 2" width="400"> </kbd></td>
 </tr>
-<header>
-<td align="centre"><i>(far too many) ILC indicators</i></td>
-</header>
 <tr>
 <td><kbd><img src="example2_icw_excerpt3.png" alt="Example 2 ICW excerpt 3" width="400"> </kbd></td>
 </tr>
