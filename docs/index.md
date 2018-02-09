@@ -1,29 +1,11 @@
 **About**
 
-This page provides relevant tools used to prepare selected social indicator data downloaded from [ESTAT website](http://ec.europa.eu/eurostat/data/database) and provide an interactive display based on [`d3-force` layout](https://github.com/d3/d3-force). These tools aim at reusing the material developed by S.Carter for the _New York Times_ publication mentioned below [below](#References) so as to provide with a similar visualisation.
+This page provides few examples of web-based visualisation of the data and metadata disseminated on [ESTAT website](http://ec.europa.eu/eurostat/data/database). It uses for that purpose some already existing templates based on the `d3.js` library (_e.g._ see gallery referenced [below](#References)). Besides the example webpages, the material used to handle the extracted (meta)data and prepare (select/filter/reshape) them for visualisation is also provided.
 
-**Description**
+**Contents**
 
-The webpage [_peps01_slice.html_](https://github.com/eurostat/d3force4EUSILC/blob/master/peps01_slice.html) illustrates some important figures related to ESTAT indicator _ilc_peps01_ on *people at risk of poverty or social exclusion* by age and sex (see also the  news release [below](#References)). The front page (first tab selected) looks like this:
-<table>
-<tr>
-<td><kbd><img src="peps01-d3force.png" alt="PEPS01 display"></kbd></td>
-</tr>
-</table>
-
-**Usage** 
-
-**To actually see the interactive visualisation, you need to download the webpage and display it locally in your browser.** You can get a preview of this page using `rawgit`: **check this [address](https://cdn.rawgit.com/eurostat/d3force4EUSILC/d3300d9f/peps01_slice.html) for quick rendering/visualisation**, though the display is much slower and some of its features are disabled.
-
-All _html/javascript/css_ resources used by the original _"Four ways to slice..."_ publication have been embedded in the webpage _peps01_slice.html_. The code has been modified accordingly so as to visualise  specifically the selected data  (see `javascript` variables `estat.rate_data_total`, `estat.category_list` and `estat.category_data`).
-
-We provide hereby two `Python` modules that will enable you to prepare the selected social indicators data for the visualisation:
-* [`data.py`](https://github.com/eurostat/d3force4EUSILC/blob/master/data.py) contains the classes/methods that will help you download the data from ESTAT website;
-* [`display.py`](https://github.com/eurostat/d3force4EUSILC/blob/master/display.py) contains the classes/methods that will enable you to format the data to be inserted in the webpage.
-
-Note in particular that `display.py` implements some circle packing algorithms for optimally filling a circle with other circles: this is used to position the circle centers in the initial overall display. 
-
-Data requested for the visualisation proposed in _peps01_slice.html_ webpage are formatted in the [`peps01_slice.py`](https://github.com/eurostat/d3force4EUSILC/blob/master/peps01_slice.py) script. They are output as `json` but can be copied 'as is' in the webpage source code.
+* [example 1](example1.md): It provides with an example of interactive display of selected social indicator based on [`d3-force` layout](https://github.com/d3/d3-force).
+* [example 2](example2.md): 
 
 **<a name="References"></a>References**
 
