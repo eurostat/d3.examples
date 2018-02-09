@@ -15,7 +15,7 @@
 <td align="centre"><i>(far too many) ILC indicators</i></td>
 </header>
 <tr>
-<td><kbd><img src="example2_icw_excerpt3.png" alt="Example 2 ICW excerpt 1" width="400"> </kbd></td>
+<td><kbd><img src="example2_icw_excerpt3.png" alt="Example 2 ICW excerpt 3" width="400"> </kbd></td>
 </tr>
 </table>
 
