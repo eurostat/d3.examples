@@ -1,6 +1,6 @@
 ##### Example 1 - `d3-force` based visualisation of indicators
 
-###### <a name="About"></a>Description
+###### <a name="Description"></a>Description
 
 This page provides relevant tools used to prepare selected social indicator data downloaded from [ESTAT website](http://ec.europa.eu/eurostat/data/database) and provide an interactive display based on [`d3-force` layout](https://github.com/d3/d3-force). These tools aim at reusing the material developed by S.Carter for the _New York Times_ publication mentioned below [below](#References) so as to provide with a similar visualisation.
 
