@@ -19,7 +19,7 @@ import metabase
 import adjacency_chord
 
 # control the indicators you want to select
-INDICATOR_KEEP  = ['icw'] # ['ilc_peps', 'ilc_li']
+INDICATOR_KEEP  = ['icw']
 
 DIMENSION_DROP  = ['geo', 'time']
 
