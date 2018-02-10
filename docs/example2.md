@@ -44,7 +44,7 @@ These files can then be dynamically loaded by the generic _index.html_ webpage. 
 
 For the visualisation of the metadata related to ICW indicators, the webpage [_example2_icw.html_](https://github.com/eurostat/d3ex4es/blob/master/example2/example2_icw.html) has been created as a specific copy of the generic _index.html_ webpage. To display the chord diagram locally in your browser, it will be necessary to download: 
 * the source webpage _example2_icw.html, 
-* the `Javascript` scripts `d3.layout.chord.sort.js`, `d3.layout.chord.sort.js`, and `script.js`, 
+* the `Javascript` scripts `d3.layout.chord.sort.js`, `d3.layout.chord.sort.js`, `title.js` and `script.js`, 
 * the generated `JSON` files.
 
 ###### <a name="References"></a>References
