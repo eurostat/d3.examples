@@ -39,7 +39,7 @@ Through `rawgit`, a **preview of this webpage is made available at this [address
 The output visualisation provided in example 2 reuses the **`d3` material introduced in a [tutorial](https://www.visualcinnamon.com/2015/08/stretched-chord.html) on flow diagrams**, so as to represent the dependency links between data and metadata.
 
 The webpage [_example2_icw.html_](https://github.com/eurostat/d3ex4es/blob/master/example2/example2_icw.html) shows the dependency between Eurostat (experimental) indicators on income, consumption and wealth (ICW) and the various dimensions that are actually used for the definition of the population breakdowns. 
-Through `rawgit`, a **preview of this webpage is made available at this [address](https://cdn.rawgit.com/eurostat/d3ex4es/a3a6c755/example2/example2_icw_rawgit.html)**.
+Through `rawgit`, a **preview of this webpage is made available at this [address](https://cdn.rawgit.com/eurostat/d3ex4es/a3a6c755/example2/example2_icw_rawgit.html)** while another example based on the metadata for the **[EU-SILC dataset](http://ec.europa.eu/eurostat/web/income-and-living-conditions/data/database) is presented [here](https://cdn.rawgit.com/eurostat/d3ex4es/975963db/example2/example2_ilc_rawgit.html)**.
 
 **<a name="References"></a>References**
 
