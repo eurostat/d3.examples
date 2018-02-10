@@ -145,21 +145,37 @@ class Data(object):
 
     #/************************************************************************/
     def filter(self, **kwargs):
-        indicator_keep, dimension_drop = kwargs.pop('ind_keep', None), kwargs.pop('dim_drop', None)
-        if indicator_keep in ([],None) and dimension_drop in ([],None):
+        kw_ind, kw_dim = kwargs.pop('ind', {}), kwargs.pop('dim', {})
+        if kw_ind == {} and kw_dim == {}:
+            return self.__table
+        elif not (isinstance(kw_ind, dict) and isinstance(kw_dim, dict)):
+            raise IOError('Wrong type for keyword arguments "IND" and/or "DIM"')
+        if kw_ind != {}:
+            ind_keep, ind_drop = kw_ind.pop('keep', None), kw_ind.pop('drop', None)
+        if kw_dim != {}:
+            dim_keep, dim_drop = kw_dim.pop('keep', None), kw_dim.pop('drop', None)
+        if all([arg in ([],None) for arg in [ind_keep, ind_drop, dim_keep, dim_drop]]):
             return self.__table
         else:
             df = self.__table
-        if  not indicator_keep in ([],None):
-            # limit the dataset to SILC data only
-            regexp = '|'.join(indicator_keep)
+        if  not ind_keep in ([],None):
+            regexp = '|'.join(ind_keep)
             df = df.loc[df[INDICATOR].str.contains(regexp, regex=True)]
-            #search_text = lambda text: bool(re.search('%s' % SILC_KEYWORD, text))
+            #search_text = lambda text: bool(re.search('%s' % regexp, text))
             #df = df.loc[df['indicator'].map(search_text) == True]
-        
-        if not dimension_drop in ([],None):
+        if df.empty:                    return df
+        if  not ind_drop in ([],None):
+            regexp = '|'.join(ind_drop)
+            df = df.loc[~df[INDICATOR].str.contains(regexp, regex=True)]
+        if df.empty:                    return df
+        if not dim_drop in ([],None):
             drop_index = reduce(lambda idx1, idx2: idx1.union(idx2),            \
-                                [df[df[DIMENSION] == dim].index for dim in dimension_drop])
+                                [df[df[DIMENSION] == dim].index for dim in dim_drop])
             df = df.loc[(df.index).difference(drop_index)]
+        if df.empty:                    return df
+        if not dim_keep in ([],None):
+            keep_index = reduce(lambda idx1, idx2: idx1.union(idx2),            \
+                                [df[df[DIMENSION] == dim].index for dim in dim_keep])
+            df = df.loc[keep_index]
         # self.__table = df
         return df

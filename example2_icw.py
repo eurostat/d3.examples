@@ -27,7 +27,8 @@ INDICATORxDIMENSION = '%sx%s' % (metabase.INDICATOR, metabase.DIMENSION)
 ODIR            = '../__temp__'
 
 [dimensions, indicators, df_adjacency] = \
-    adjacency_chord.meta2adjacency(ind_keep = INDICATOR_KEEP, dim_drop = DIMENSION_DROP)
+    adjacency_chord.meta2adjacency(ind= {'keep': INDICATOR_KEEP}, 
+                                   dim= {'drop': DIMENSION_DROP})
 adjacency_chord.adjacency2json(df_adjacency, dim=dimensions, ind=indicators,
                oifn = metabase.INDICATOR, odfn = metabase.DIMENSION, 
                oixdfn = INDICATORxDIMENSION, odir=ODIR)
