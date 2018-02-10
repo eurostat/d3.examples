@@ -31,9 +31,10 @@ You can get a preview of this page using `rawgit`: **check this [address](https:
 The original material includes: the _index.html_ webpage as well as the `Javascript` source codes [`d3.layout.chord.sort.js`](https://github.com/eurostat/d3ex4es/blob/master/example2/d3.layout.chord.sort.js) and
 [`d3.layout.chord.sort.js`](https://github.com/eurostat/d3ex4es/blob/master/example2/d3.layout.chord.sort.js). The source [`script.js`](https://github.com/eurostat/d3ex4es/blob/master/example2/script.js) has been slightly adapted so as to make the dynamic data loading of _(dimension/indicator)_ data within the _index.html_ page possible. It has also been split in two so as to provide a separate configuration of the title of the graph in `title.js`.
 
-We also provide two `Python` modules that will enable you to select and prepare the metadata that are used for the visualisation of the data/metadata relationship:
-* [`metadata.py`](https://github.com/eurostat/d3ex4es/blob/master/metadata.py) contains the classes/methods that help retrieve, from _Eurostat_ website, the metadata in bulk format;
-* [`adjacency_chord.py`](https://github.com/eurostat/d3ex4es/blob/master/adjacency_chord.py) contains the methods that will enable you to select the output indicators to be presented (see the role of the global `INDICATOR_KEEP` variable in the code) and format the input metadata table to be used for that purpose.
+The `Python` code [`example2_icw.py`](https://github.com/eurostat/d3ex4es/blob/master/example2/example2_icw.py) will enable you to reproduce the data used for the visualisation. It can be easily adapted to produce similar tables for other indicator/dimension pairs.
+We also provide two generic modules that will enable you to select and prepare the metadata that are used for the visualisation of the data/metadata relationship:
+* [`metadata.py`](https://github.com/eurostat/d3ex4es/blob/master/metadata.py) contains the classes/methods that help retrieve, from _Eurostat_ website, the metadata in bulk format; it also contains the method that will enable you to select the output indicators (see the role of the variable `INDICATOR_KEEP` in the code `example2_icw.py`) as well as the dimensions (_ibid_, see the use of the variable `DIMENSION_DROP`) to be presented;
+* [`adjacency_chord.py`](https://github.com/eurostat/d3ex4es/blob/master/adjacency_chord.py) contains the method that formats and exports the input metadata table to be used in the visualisation.
 
 The latter module will generate 3 `JSON` files (which are actually also `Javascript` scripts...), namely:
 * [`INDICATOR.json`](https://github.com/eurostat/d3ex4es/blob/master/example2/INDICATOR.json) contains the list of indicators selected and whose metadata have been collected for,
