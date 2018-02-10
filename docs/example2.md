@@ -29,7 +29,7 @@ You can get a preview of this page using `rawgit`: **check this [address](https:
 ###### <a name="Usage"></a>Usage
 
 The original material includes: the _index.html_ webpage as well as the `Javascript` source codes [`d3.layout.chord.sort.js`](https://github.com/eurostat/d3ex4es/blob/master/example2/d3.layout.chord.sort.js) and
-[`d3.layout.chord.sort.js`](https://github.com/eurostat/d3ex4es/blob/master/example2/d3.layout.chord.sort.js). The source [`script.js`](https://github.com/eurostat/d3ex4es/blob/master/example2/script.js) has been slightly adapted so as to make the dynamic data loading of _(dimension/indicator)_ data within the _index.html_ page possible.
+[`d3.layout.chord.sort.js`](https://github.com/eurostat/d3ex4es/blob/master/example2/d3.layout.chord.sort.js). The source [`script.js`](https://github.com/eurostat/d3ex4es/blob/master/example2/script.js) has been slightly adapted so as to make the dynamic data loading of _(dimension/indicator)_ data within the _index.html_ page possible. It has also been split in two so as to provide a separate configuration of the title of the graph in `title.js`.
 
 We also provide two `Python` modules that will enable you to select and prepare the metadata that are used for the visualisation of the data/metadata relationship:
 * [`metadata.py`](https://github.com/eurostat/d3ex4es/blob/master/metadata.py) contains the classes/methods that help retrieve, from _Eurostat_ website, the metadata in bulk format;
