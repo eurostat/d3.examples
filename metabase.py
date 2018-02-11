@@ -85,10 +85,11 @@ class Data(object):
            
     #/************************************************************************/
     def read(self, **kwargs):
-        path, base = kwargs.get('base'), kwargs.get('base', self.basename)
+        path, base = kwargs.get('path'), kwargs.get('base', self.basename)
         if path is not None:
             base = '%s/%s' % (path, base)
         if not os.path.exists(base):
+            warnings.warn('Base file %s not found' % base)
             return
         self.__table = pd.read_csv(base, header=None, sep=self.SEP, names=self.NAMES)
 
@@ -147,6 +148,7 @@ class Data(object):
     def filter(self, **kwargs):
         kw_ind, kw_dim = kwargs.pop('ind', {}), kwargs.pop('dim', {})
         if kw_ind == {} and kw_dim == {}:
+            warnings.warn('No filter applied')
             return self.__table
         elif not (isinstance(kw_ind, dict) and isinstance(kw_dim, dict)):
             raise IOError('Wrong type for keyword arguments "IND" and/or "DIM"')
@@ -155,27 +157,33 @@ class Data(object):
         if kw_dim != {}:
             dim_keep, dim_drop = kw_dim.pop('keep', None), kw_dim.pop('drop', None)
         if all([arg in ([],None) for arg in [ind_keep, ind_drop, dim_keep, dim_drop]]):
+            warnings.warn('No filter applied')
             return self.__table
         else:
             df = self.__table
         if  not ind_keep in ([],None):
+            if not isinstance(ind_keep, (list,tuple)):  ind_keep = [ind_keep,]
             regexp = '|'.join(ind_keep)
             df = df.loc[df[INDICATOR].str.contains(regexp, regex=True)]
             #search_text = lambda text: bool(re.search('%s' % regexp, text))
             #df = df.loc[df['indicator'].map(search_text) == True]
         if df.empty:                    return df
         if  not ind_drop in ([],None):
+            if not isinstance(ind_drop, (list,tuple)):  ind_drop = [ind_drop,]
             regexp = '|'.join(ind_drop)
             df = df.loc[~df[INDICATOR].str.contains(regexp, regex=True)]
         if df.empty:                    return df
         if not dim_drop in ([],None):
+            if not isinstance(dim_drop, (list,tuple)):  dim_drop = [dim_drop,]
             drop_index = reduce(lambda idx1, idx2: idx1.union(idx2),            \
                                 [df[df[DIMENSION] == dim].index for dim in dim_drop])
             df = df.loc[(df.index).difference(drop_index)]
         if df.empty:                    return df
         if not dim_keep in ([],None):
+            if not isinstance(dim_keep, (list,tuple)):  dim_keep = [dim_keep,]
             keep_index = reduce(lambda idx1, idx2: idx1.union(idx2),            \
                                 [df[df[DIMENSION] == dim].index for dim in dim_keep])
             df = df.loc[keep_index]
         # self.__table = df
         return df
+    

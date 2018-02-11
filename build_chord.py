@@ -43,11 +43,12 @@ import metabase
 def __filedirexists(file):
     return os.path.exists(os.path.exists(os.path.dirname(file)))
 
-def meta2adjacency(**kwargs):    
+def meta2data(**kwargs):    
     metadata = metabase.Data()
     metadata.download()        
-    df = metadata.filter(**kwargs)
+    return metadata.filter(**kwargs)
      
+def data2adjacency(df):         
     df_unique = df.drop_duplicates([metabase.INDICATOR, metabase.DIMENSION])
     # df_test = df_unique.pivot(index='indicator', columns='dimension', values='label')
     df_unique.drop(columns=metabase.LABEL)
@@ -71,6 +72,48 @@ def meta2adjacency(**kwargs):
     return [dimensions, indicators, pd.DataFrame(df_cross.values | df_crossT.values, index = idx, columns = idx)]
     # note: df_cross | df_crossT generates a NotImplementedError error type        
         
+def meta2cross(df, cross=None):  
+    
+    print (df.index)
+    idx = {0: [], 1: []}
+    if not cross in ([],None):
+        if not isinstance(cross, (list,tuple)) or len(cross)!=2:     
+            cross = [cross,]
+        for i in [0,1]:
+            if cross[i] in ([],None):   break
+            regexp = '|'.join(cross[i])
+            _idx = df.loc[df[metabase.INDICATOR].str.contains(regexp, regex=True)].index.tolist()
+            idx[i] = idx[i] + _idx
+    if not all([_idx in ([],None) for _idx in idx.values()]):
+        index = idx[0] + idx[1]
+    else:
+        idx[0] = idx[1] = df.index
+        index = df.index
+    ## two rounds of drop_duplicates to keep only non-unique (DIMENSION,LABEL) pairs 
+    #df1 = df.drop_duplicates(subset=[metabase.DIMENSION, metabase.LABEL])
+    #df2 = df.loc[(df.index).difference(df1.index)]
+    #uni_index = df2.drop_duplicates(subset=[metabase.DIMENSION, metabase.LABEL]).index
+    ## note also: 
+    #df_group = df.groupby(by=[metabase.DIMENSION, metabase.LABEL])
+    #df_dimlab = df_group.count()
+    ## keep only non-unique (DIMENSION,LABEL) pairs 
+    #df_dimlab = df_dimlab[df_dimlab[metabase.INDICATOR] > 1]
+
+    df_cross = pd.pivot_table(df, index=[metabase.DIMENSION, metabase.LABEL], columns=[metabase.INDICATOR], aggfunc=len, fill_value=0)
+    df_cross = df_cross.T.dot(df_cross)
+    # # alternative solution
+    # df['value'] = 1
+    # df1 = pd.pivot_table(df, index=[metabase.DIMENSION, metabase.LABEL], values='value', columns=metabase.INDICATOR, fill_value=0)
+    np.fill_diagonal(df_cross.values, 0)
+    
+    #s = df_cross.sum(axis=0) 
+    #index = s[s != 0].index.tolist()
+    df_cross.reindex(index = index, columns = index, fill_value=0)
+
+    return [df.ix[pd.Index(idx[0]),metabase.INDICATOR].unique().tolist(), 
+            df.ix[pd.Index(idx[1]),metabase.INDICATOR].unique().tolist(), 
+            df_cross]
+
 def adjacency2json(df_adjacency, **kwargs):
     dimensions, indicators = kwargs.pop('dim',[]), kwargs.pop('ind',[]) 
     odir, ofmt = kwargs.pop('odir','.'), kwargs.pop('ofmt','json') 
