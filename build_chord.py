@@ -32,7 +32,7 @@ except:
     except:
         warnings.warn("Package simplejson/json not imported")
 
-import metabase
+import metadata
 
 
 #%%      
@@ -44,15 +44,15 @@ def __filedirexists(file):
     return os.path.exists(os.path.exists(os.path.dirname(file)))
 
 def meta2data(**kwargs):    
-    metadata = metabase.Data()
-    metadata.download()        
-    return metadata.filter(**kwargs)
+    metabase = metadata.Metabase()
+    metabase.download()        
+    return metabase.filter(**kwargs)
      
 def data2adjacency(df):         
-    df_unique = df.drop_duplicates([metabase.INDICATOR, metabase.DIMENSION])
+    df_unique = df.drop_duplicates([metadata.INDICATOR, metadata.DIMENSION])
     # df_test = df_unique.pivot(index='indicator', columns='dimension', values='label')
-    df_unique.drop(columns=metabase.LABEL)
-    df_cross = pd.crosstab(df_unique[metabase.INDICATOR], df_unique[metabase.DIMENSION])
+    df_unique.drop(columns=metadata.LABEL)
+    df_cross = pd.crosstab(df_unique[metadata.INDICATOR], df_unique[metadata.DIMENSION])
     df_cross['dumb'] = 0
     df_cross = df_cross.T
     df_cross['dumber'] = 0
@@ -82,7 +82,7 @@ def meta2cross(df, cross=None):
         for i in [0,1]:
             if cross[i] in ([],None):   break
             regexp = '|'.join(cross[i])
-            _idx = df.loc[df[metabase.INDICATOR].str.contains(regexp, regex=True)].index.tolist()
+            _idx = df.loc[df[metadata.INDICATOR].str.contains(regexp, regex=True)].index.tolist()
             idx[i] = idx[i] + _idx
     if not all([_idx in ([],None) for _idx in idx.values()]):
         index = idx[0] + idx[1]
@@ -99,7 +99,7 @@ def meta2cross(df, cross=None):
     ## keep only non-unique (DIMENSION,LABEL) pairs 
     #df_dimlab = df_dimlab[df_dimlab[metabase.INDICATOR] > 1]
 
-    df_cross = pd.pivot_table(df, index=[metabase.DIMENSION, metabase.LABEL], columns=[metabase.INDICATOR], aggfunc=len, fill_value=0)
+    df_cross = pd.pivot_table(df, index=[metadata.DIMENSION, metadata.LABEL], columns=[metadata.INDICATOR], aggfunc=len, fill_value=0)
     df_cross = df_cross.T.dot(df_cross)
     # # alternative solution
     # df['value'] = 1
@@ -110,15 +110,15 @@ def meta2cross(df, cross=None):
     #index = s[s != 0].index.tolist()
     df_cross.reindex(index = index, columns = index, fill_value=0)
 
-    return [df.ix[pd.Index(idx[0]),metabase.INDICATOR].unique().tolist(), 
-            df.ix[pd.Index(idx[1]),metabase.INDICATOR].unique().tolist(), 
+    return [df.ix[pd.Index(idx[0]),metadata.INDICATOR].unique().tolist(), 
+            df.ix[pd.Index(idx[1]),metadata.INDICATOR].unique().tolist(), 
             df_cross]
 
 def adjacency2json(df_adjacency, **kwargs):
     dimensions, indicators = kwargs.pop('dim',[]), kwargs.pop('ind',[]) 
     odir, ofmt = kwargs.pop('odir','.'), kwargs.pop('ofmt','json') 
-    oifn, odfn = kwargs.pop('oifn', metabase.INDICATOR), kwargs.pop('odfn', metabase.DIMENSION)
-    oixdfn = kwargs.pop('oixdfn','%sx%s' % (metabase.INDICATOR, metabase.DIMENSION))
+    oifn, odfn = kwargs.pop('oifn', metadata.INDICATOR), kwargs.pop('odfn', metadata.DIMENSION)
+    oixdfn = kwargs.pop('oixdfn','%sx%s' % (metadata.INDICATOR, metadata.DIMENSION))
 
     ofn = '%s/%s.%s' % (odir, oixdfn, ofmt)
     if __filedirexists(ofn):

@@ -57,7 +57,7 @@ LABEL           = 'LABEL'
 # METHOD DEFINITION
 #==============================================================================
 
-class Data(object):
+class Metabase(object):
     BULK_DOMAIN     = 'ec.europa.eu/eurostat/estat-navtree-portlet-prod'
     BULK_QUERY      = 'BulkDownloadListing'
     BULK_BASE_FILE  = 'metabase.txt' 
