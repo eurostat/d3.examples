@@ -60,13 +60,19 @@ LABEL           = 'LABEL'
 class Metabase(object):
     BULK_DOMAIN     = 'ec.europa.eu/eurostat/estat-navtree-portlet-prod'
     BULK_QUERY      = 'BulkDownloadListing'
-    BULK_BASE_FILE  = 'metabase.txt' 
+    BULK_BASE_FILE  = 'metabase' 
+    BULK_BASE_EXT   = 'txt' 
     BULK_BASE_ZIP   = 'gz' 
     LANG            = 'en'
     SORT            = 1
     NAMES           = [INDICATOR, DIMENSION, LABEL]
     SEP             = '\s+'
     
+    #/************************************************************************/
+    @staticmethod
+    def _fileexists(file):
+        return os.path.exists(os.path.abspath(file))
+
     #/************************************************************************/
     def __init__(self):
         self.__table = None
@@ -80,15 +86,20 @@ class Metabase(object):
     #/************************************************************************/
     @property
     def basename(self):
-        self.__basename = '%s.%s' % (self.BULK_BASE_FILE, self.BULK_BASE_ZIP)
+        if self.__basename in ('',None):
+            self.__basename = '%s.%s' % (self.BULK_BASE_FILE, self.BULK_BASE_EXT)
+            if self.BULK_BASE_ZIP not in ('',None):
+                self.__basename = '%s.%s' % (self.__basename, self.BULK_BASE_ZIP)
         return self.__basename
            
     #/************************************************************************/
     def read(self, **kwargs):
         path, base = kwargs.get('path'), kwargs.get('base', self.basename)
+        if base in ('',None):
+            base = self.basename
         if path is not None:
             base = '%s/%s' % (path, base)
-        if not os.path.exists(base):
+        if not self._fileexists(base):
             warnings.warn('Base file %s not found' % base)
             return
         self.__table = pd.read_csv(base, header=None, sep=self.SEP, names=self.NAMES)
@@ -186,4 +197,68 @@ class Metabase(object):
             df = df.loc[keep_index]
         # self.__table = df
         return df
+
+def meta2data(**kwargs):    
+    metabase = Metabase()
+    try:
+        metabase.read(**kwargs)
+    except:
+        metabase.download()        
+    return metabase.filter(**kwargs)
+
+class ToC(Metabase): # we are just lazy...
+    #BULK_DOMAIN     = 'ec.europa.eu/eurostat/estat-navtree-portlet-prod'
+    #BULK_QUERY      = 'BulkDownloadListing'
+    BULK_BASE_FILE  = 'table_of_contents' 
+    #BULK_BASE_EXT   = 'txt' 
+    LANG            = 'en'
+    #SORT            = 1
+    # #NAMES           = ["title"	"code"	"type"	"last update of data"	"last table structure change"	"data start"	"data end"	"values"]
+    SEP             = '\s+'
+ 
+    #/************************************************************************/
+    def __init__(self):
+        # super(ToC,self).__init__()
+        self.__table = None
+        self.__basename = ''
+               
+    #/************************************************************************/
+    @property
+    def table(self):
+        return self.__table 
+                
+    #/************************************************************************/
+    @property
+    def basename(self):
+        if self.__basename in ('',None):
+            self.__basename = '%s_%s.%s' % (self.BULK_BASE_FILE, self.LANG, self.BULK_BASE_EXT)
+        return self.__basename
+           
+    #/************************************************************************/
+    def read(self, **kwargs):
+        path, base = kwargs.get('path'), kwargs.get('base', self.basename)
+        if base in ('',None):
+            base = self.basename
+        if path is not None:
+            base = '%s/%s' % (path, base)
+        if not self._fileexists(base):
+            warnings.warn('Base file %s not found' % base)
+            return
+        self.__table = pd.read_csv(base, header='infer', sep=self.SEP
+                                   # names=self.NAMES
+                                   )
+        
+    #/************************************************************************/
+    def filter(self, **kwargs):
+        pass
+    
+def toc2table(**kwargs):    
+    toc = ToC()
+    try:
+        toc.read(**kwargs)
+        assert toc.table is not None
+    except:
+        print ("burp")
+        toc.download()        
+    return toc.filter(**kwargs)
     

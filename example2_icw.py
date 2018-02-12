@@ -27,8 +27,8 @@ DIMENSION_DROP  = ['geo', 'time']
 INDICATORxDIMENSION = '%sx%s' % (metadata.INDICATOR, metadata.DIMENSION)
 ODIR            = 'example2'
 
-df = build_chord.meta2data(ind= {'keep': INDICATOR_KEEP}, 
-                           dim= {'drop': DIMENSION_DROP})
+df = metadata.meta2data(ind= {'keep': INDICATOR_KEEP}, 
+                        dim= {'drop': DIMENSION_DROP})
 
 [dimensions, indicators, df_adjacency] = build_chord.data2adjacency(df)
 

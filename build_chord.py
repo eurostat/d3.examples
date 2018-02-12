@@ -41,12 +41,7 @@ import metadata
 #==============================================================================
 
 def __filedirexists(file):
-    return os.path.exists(os.path.exists(os.path.dirname(file)))
-
-def meta2data(**kwargs):    
-    metabase = metadata.Metabase()
-    metabase.download()        
-    return metabase.filter(**kwargs)
+    return os.path.exists(os.path.abspath(os.path.dirname(file)))
      
 def data2adjacency(df):         
     df_unique = df.drop_duplicates([metadata.INDICATOR, metadata.DIMENSION])
