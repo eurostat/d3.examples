@@ -53,4 +53,4 @@ For the visualisation of the metadata related to ICW indicators, the webpage [_e
 *  N. Bremer's `d3`-based tutorial on ["How to create a flow diagram with a circular Twist"](https://www.visualcinnamon.com/2015/08/stretched-chord.html).
 * [`d3-chord`](https://github.com/d3/d3-chord).
 * Eurostat _Experimental Statistics_ [webpage](http://ec.europa.eu/eurostat/web/experimental-statistics/income-consumption-and-wealth) on _Income, Consumption and Wealth_.
-* [R source codes](https://github.com/eurostat/ICW) for experimental statistics on (household) _Income, Consumption and Wealth_.
+* [R source codes](https://github.com/eurostat/ICW) for _Experimental Statistics_ on (household) _Income, Consumption and Wealth_.
