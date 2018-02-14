@@ -19,7 +19,7 @@ This page provides few examples of web-based visualisations of the data and meta
 
 * [example 1](example1.md) provides with an example of interactive display of selected social indicator based on [`d3-force` layout](https://github.com/d3/d3-force).
 * [example 2](example2.md) shows how chord diagrams can be used to represent metadata.  
-* [example 3](example3.md) represents the table of contents of a database as a collapsible tree.  
+* [example 3](example3.md) represents the table of contents of a database as a collapsible tree using the [`d3-tree` layout](https://github.com/mbostock/d3/wiki/Tree-Layout).  
 
 ##### <a name="References"></a>References
 

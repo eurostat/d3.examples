@@ -1,8 +1,8 @@
-##### Example 3 - `d3`-based visualisation of database contents as a collapsible tree
+##### Example 3 - `d3-tree`-based visualisation of database contents as a collapsible tree
 
 ###### <a name="Description"></a>Description
 
-The implementation presented here reuses the `d3` material introduced in an example of graph visualisation as tree, and aims at representing the table of contents of Eurostat online database. 
+The implementation presented here reuses the [`d3-tree`](https://github.com/mbostock/d3/wiki/Tree-Layout) material introduced in an example of graph visualisation as tree, and aims at representing the table of contents of Eurostat online database. 
 
 The webpage [_example3_toc.html_](https://github.com/eurostat/d3ex4es/blob/master/example3/example3_toc.html) represents the table of contents of _Eurostat_ online database as a collapsible tree implementing Reingold-Tilford algorithm. See [below](#References) for further useful references.
 
@@ -25,7 +25,9 @@ The latter module will generate a single `JSON` file (actually a `Javascript` sc
 
 ###### <a name="References"></a>References
 
+* [What is a tree diagram?](http://www.d3noob.org/2014/01/tree-diagrams-in-d3js_11.html).
 * M.Bostock's original [tidy](https://bl.ocks.org/mbostock/4339184) and [collapsible](https://bl.ocks.org/mbostock/4339083) trees.
 *  R.Schmuecker `d3`-based example of ["drag-and-drop zoomable, panning, collapsible tree with auto-sizing"](http://www.robschmuecker.com/d3-js-drag-and-drop-zoomable-tree). Sources available [here](http://bl.ocks.org/robschmuecker/7880033).
+* `d3-tree` layout [package](https://github.com/mbostock/d3/wiki/Tree-Layout).
 * [collapsibleTree](https://github.com/AdeelK93/collapsibleTree) implementation of collapsible tree in `R`.
 * _Eurostat_ [table of contents](http://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?sort=1&file=table_of_contents_en.txt) on bulk download facility.
