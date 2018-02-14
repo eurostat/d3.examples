@@ -10,11 +10,14 @@ Created on Tue Jan 30 09:20:49 2018
 from __future__ import print_function
 
 import os, re#analysis:ignore
+import time
 import os.path
 import warnings
 
 from collections import OrderedDict
 from functools import reduce
+from itertools import takewhile
+import copy
 
 try:
     import numpy as np#analysis:ignore
@@ -75,22 +78,25 @@ class Metabase(object):
 
     #/************************************************************************/
     def __init__(self):
-        self.__table = None
-        self.__basename = ''
+        self._table = None
+        self._basename = ''
         
     #/************************************************************************/
     @property
     def table(self):
-        return self.__table
-                
+        return self._table
+    @table.setter
+    def table(self, table):
+        self._table = table
+               
     #/************************************************************************/
     @property
     def basename(self):
-        if self.__basename in ('',None):
-            self.__basename = '%s.%s' % (self.BULK_BASE_FILE, self.BULK_BASE_EXT)
+        if self._basename in ('',None):
+            self._basename = '%s.%s' % (self.BULK_BASE_FILE, self.BULK_BASE_EXT)
             if self.BULK_BASE_ZIP not in ('',None):
-                self.__basename = '%s.%s' % (self.__basename, self.BULK_BASE_ZIP)
-        return self.__basename
+                self._basename = '%s.%s' % (self._basename, self.BULK_BASE_ZIP)
+        return self._basename
            
     #/************************************************************************/
     def read(self, **kwargs):
@@ -102,7 +108,7 @@ class Metabase(object):
         if not self._fileexists(base):
             warnings.warn('Base file %s not found' % base)
             return
-        self.__table = pd.read_csv(base, header=None, sep=self.SEP, names=self.NAMES)
+        self.table = pd.read_csv(base, header=None, sep=self.SEP, names=self.NAMES)
 
     #/************************************************************************/
     def download(self, **kwargs):
@@ -130,19 +136,22 @@ class Metabase(object):
             # status = response.status_code
             response.close()
         # set some default values (some are already default values for read_table)
-        kwargs.update({'header': None, 
+        kwargs.update({'header': kwargs.get('header') or None, 
                        'encoding': kwargs.get('encoding') or None,
                        'skip_blank_lines': kwargs.get('skip_blank_lines') or True, 
                        'memory_map': kwargs.get('memory_map') or True,
                        'error_bad_lines': kwargs.get('error_bad_lines') or False, 
-                       'warn_bad_lines': kwargs.get('warn_bad_lines') or True, 
-                       'names': self.NAMES, 'sep': self.SEP})
+                       'warn_bad_lines': kwargs.get('warn_bad_lines') or True})
+        if self.NAMES not in (None,[]):
+            kwargs.update({'names': self.NAMES})
+        if self.SEP not in (None,[]):
+            kwargs.update({'sep': self.SEP})
         if self.basename.endswith('gz'):
             kwargs.update({'compression': 'gzip'})
         else:
             kwargs.update({'compression': 'infer'})
         # run the pandas.read_table method
-        self.__table = pd.read_table(url, **kwargs)
+        self.table = pd.read_table(url, **kwargs)
 
     #/************************************************************************/
     def load(self, base):
@@ -153,14 +162,14 @@ class Metabase(object):
                 pass
         elif not isinstance(base, pd.DataFrame):
             raise IOError('wrong value for METABASE parameter')
-        self.__table = base
+        self.table = base
 
     #/************************************************************************/
     def filter(self, **kwargs):
         kw_ind, kw_dim = kwargs.pop('ind', {}), kwargs.pop('dim', {})
         if kw_ind == {} and kw_dim == {}:
             warnings.warn('No filter applied')
-            return self.__table
+            return self.table
         elif not (isinstance(kw_ind, dict) and isinstance(kw_dim, dict)):
             raise IOError('Wrong type for keyword arguments "IND" and/or "DIM"')
         if kw_ind != {}:
@@ -169,9 +178,9 @@ class Metabase(object):
             dim_keep, dim_drop = kw_dim.pop('keep', None), kw_dim.pop('drop', None)
         if all([arg in ([],None) for arg in [ind_keep, ind_drop, dim_keep, dim_drop]]):
             warnings.warn('No filter applied')
-            return self.__table
+            return self.table
         else:
-            df = self.__table
+            df = self.table
         if  not ind_keep in ([],None):
             if not isinstance(ind_keep, (list,tuple)):  ind_keep = [ind_keep,]
             regexp = '|'.join(ind_keep)
@@ -195,7 +204,7 @@ class Metabase(object):
             keep_index = reduce(lambda idx1, idx2: idx1.union(idx2),            \
                                 [df[df[DIMENSION] == dim].index for dim in dim_keep])
             df = df.loc[keep_index]
-        # self.__table = df
+        # self._table = df
         return df
 
 def meta2data(**kwargs):    
@@ -213,26 +222,17 @@ class ToC(Metabase): # we are just lazy...
     #BULK_BASE_EXT   = 'txt' 
     LANG            = 'en'
     #SORT            = 1
+    NAMES           = None
     # #NAMES           = ["title"	"code"	"type"	"last update of data"	"last table structure change"	"data start"	"data end"	"values"]
     SEP             = '\s+'
- 
-    #/************************************************************************/
-    def __init__(self):
-        # super(ToC,self).__init__()
-        self.__table = None
-        self.__basename = ''
-               
-    #/************************************************************************/
-    @property
-    def table(self):
-        return self.__table 
+    INDENTLEVEL     = 4
                 
     #/************************************************************************/
     @property
     def basename(self):
-        if self.__basename in ('',None):
-            self.__basename = '%s_%s.%s' % (self.BULK_BASE_FILE, self.LANG, self.BULK_BASE_EXT)
-        return self.__basename
+        if self._basename in ('',None):
+            self._basename = '%s_%s.%s' % (self.BULK_BASE_FILE, self.LANG, self.BULK_BASE_EXT)
+        return self._basename
            
     #/************************************************************************/
     def read(self, **kwargs):
@@ -244,21 +244,54 @@ class ToC(Metabase): # we are just lazy...
         if not self._fileexists(base):
             warnings.warn('Base file %s not found' % base)
             return
-        self.__table = pd.read_csv(base, header='infer', sep=self.SEP
+        self.table = pd.read_csv(base, header='infer', sep=self.SEP
                                    # names=self.NAMES
                                    )
         
     #/************************************************************************/
     def filter(self, **kwargs):
-        pass
+        df = self.table
+        level = self.INDENTLEVEL
+        df['depth'] = df['title'].apply(lambda title: int(sum(1 for _ in takewhile(str.isspace,title)) / level))
+        return df
     
+    #/************************************************************************/
+    def format(self, *arg):
+        if arg in ((),None):    table = self.table
+        else:                   table = arg[0]
+        def obsitem(node, obs):
+            depth = obs['depth']
+            if depth==0: # and obs['type'] == 'folder' and obs['code']=='data'
+                new = OrderedDict([("name", '%s' % obs['title'].lstrip()), ("children", [])])
+                node[0].update(new)
+                node.append(new["children"])
+            elif obs['type'] == 'folder':
+                new = OrderedDict([("name", '%s - %s' % (obs['title'].lstrip(),obs['code'])), 
+                                   ("children", [])])
+                node[depth].append(new)
+                if len(node) > depth+1:
+                    node[0] = copy.deepcopy(node[0]) # deepcopy!!!
+                    node[depth+1] = new['children']
+                else:
+                    node.append(new['children'])      
+            elif obs['type'] == 'dataset':
+                new = OrderedDict([("name", '%s (%s)' % (obs['code'],obs['title'].lstrip())), 
+                                   ("size", 1)])
+                node[depth].append(new)
+        tree = OrderedDict()
+        node = [tree,]
+        [obsitem(node, obs) for _, obs in table.iterrows()]
+        return tree
+
 def toc2table(**kwargs):    
     toc = ToC()
     try:
+        print('Trying to read the input table of contents from cache...')
         toc.read(**kwargs)
         assert toc.table is not None
     except:
-        print ("burp")
-        toc.download()        
-    return toc.filter(**kwargs)
+        # time.sleep(0.5)
+        print('Downloading the bulk table from bulk facility...')
+        toc.download(header='infer')  
+    return toc.format(toc.filter())
     
