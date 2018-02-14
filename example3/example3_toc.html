@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style type="text/css">  
+	.node {
+    cursor: pointer;
+  }
+
+  .overlay{
+      background-color:#EEE;
+  }
+   
+  .node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+  }
+   
+  .node text {
+    font-size:10px; 
+    font-family:sans-serif;
+  }
+   
+  .link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1.5px;
+  }
+
+  .templink {
+    fill: none;
+    stroke: red;
+    stroke-width: 3px;
+  }
+
+  .ghostCircle.show{
+      display:block;
+  }
+
+  .ghostCircle, .activeDrag .ghostCircle{
+       display: none;
+  }
+
+  }
+</style>
+
+<body>
+    <font face = "Times New Roman">
+    <br>
+    <div >
+        <div align="left">
+            <h1>Metadata exploration: Eurostat table of contents</h1>
+        </div>
+        <div align="left" style="width: 100%;">
+            <span class="summary"><br><font size="3">
+            Explore the table of contents Eurostat online database.
+            <br> <br>
+		This tree shows the different nodes of the
+		<a href="http://ec.europa.eu/eurostat/data/database">Eurostat online database</a> 
+		which is organised as a tree of data collections. 
+		A node represent either a single dataset/indicator or a group of such 
+		nodes (<i>e.g..</i>, various datasets/indicators that are derived from a the 
+		same data collection and/or survey). Nodes are represented by a unique code.
+		This information is retrieved from the 
+        	<a href="http://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?sort=1&file=table_of_contents_en.txt">table of contents</a> 
+        	available from Eurostat 
+        	<a href="http://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing">bulk download facility</a>.
+            </font></span>&nbsp;
+        </div>
+        <br> 
+	<div style="width: 90%;">
+        <hr>
+            </div>
+    </div>
+    </font>
+    
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.0/select2.min.css"></link>
+    <div id="tree-container"></div>
+ 
+    <br><hr>
+    <div class="module"> <span class="byline">
+       This template reuses and adapts the <a href="http://d3js.org">d3.js</a>-based 
+       material developed by <a href="http://www.robschmuecker.com"><b>R.Schmuecker</b></a>
+       in the visualisation example of a
+       <b><a href="http://www.robschmuecker.com/d3-js-drag-and-drop-zoomable-tree/">"drag-and-drop zoomable, panning, collapsible tree with auto-sizing"</a></b>.
+       <br>
+       </span>
+    </div>
+</body>
+
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<script src="ToC.json"></script>
+<script src="dndTree.js"></script>
+</html>
