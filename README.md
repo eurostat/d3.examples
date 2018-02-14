@@ -45,7 +45,7 @@ Through `rawgit`, a **preview of this webpage is made available at this [address
 
 * Example 3
 
-The drag-and-drop zoomable, panning, collapsible tree presented in example 3 reuses the **[`d3-tree` layout](https://github.com/mbostock/d3/wiki/Tree-Layout) material presented in an online [example](https://www.visualcinnamon.com/2015/08/stretched-chord.html) so as to display the  table of contents of _Eurostat_ online database.
+The graph visualisation presented in the example 3 reuses the **[`d3-tree` layout](https://github.com/mbostock/d3/wiki/Tree-Layout) material exposed in an online example of [drag-and-drop zoomable, panning, collapsible tree](https://www.visualcinnamon.com/2015/08/stretched-chord.html)**, so as to display the  table of contents of _Eurostat_ online database.
 
 **<a name="References"></a>References**
 
