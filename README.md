@@ -1,7 +1,7 @@
 d3ex4es
 =======
 
-Applying `d3.js` framework for handling and exploring (Javascript/Python) Eurostat data and metadata.
+Applying `d3.js` framework for handling and exploring (`Javascript`/`Python`) _Eurostat_ data and metadata.
 ---
 
 **About**
