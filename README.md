@@ -20,6 +20,7 @@ This page provides few examples of web-based visualisation of the data and metad
 <header>
 <td align="centre">Example 1</td>
 <td align="centre">Example 2</td>
+<td align="centre">Example 3</td>
 </header>
 <tr>
 <td><kbd><a href="https://cdn.rawgit.com/eurostat/d3ex4es/01d12b8f/example1/example1_peps01.html"><img src="docs/example1_peps01.png" alt="Example 1 PEPS01" width="300"></a></kbd></td>
