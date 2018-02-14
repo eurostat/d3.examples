@@ -16,7 +16,7 @@ The webpage [_example3_toc.html_](https://github.com/eurostat/d3ex4es/blob/maste
 
 The original material includes: the `Javascript` source code [`dndTree.js`](https://github.com/eurostat/d3ex4es/blob/master/example3/dndTree.js) that has been slightly adapted for the purpose of this visualisation.
 
-The `Python` code [`example3_toc.py`](https://github.com/eurostat/d3ex4es/blob/master/example3/example3_toc.py) will enable you to reproduce the tables (files) used in the visualisation of the table of contents. 
+The `Python` code [`example3_ToC.py`](https://github.com/eurostat/d3ex4es/blob/master/example3/example3_ToC.py) will enable you to reproduce the tables (files) used in the visualisation of the table of contents. 
 We also provide two generic modules that will enable you to select and prepare the metadata like in the visualisation example:
 * [`metadata.py`](https://github.com/eurostat/d3ex4es/blob/master/metadata.py) contains the classes/methods that help retrieve, from _Eurostat_ website, the metadata in bulk format;
 * [`create_tree.py`](https://github.com/eurostat/d3ex4es/blob/master/create_tree.py) contains the method that formats the table of contents and exports it so as to be used in the visualisation.
