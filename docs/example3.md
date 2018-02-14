@@ -27,4 +27,5 @@ The latter module will generate a single `JSON` file (actually a `Javascript` sc
 
 * M.Bostock's original [tidy](https://bl.ocks.org/mbostock/4339184) and [collapsible](https://bl.ocks.org/mbostock/4339083) trees.
 *  R.Schmuecker `d3`-based example of ["drag-and-drop zoomable, panning, collapsible tree with auto-sizing"](http://www.robschmuecker.com/d3-js-drag-and-drop-zoomable-tree). Sources available [here](http://bl.ocks.org/robschmuecker/7880033).
+* [collapsibleTree](https://github.com/AdeelK93/collapsibleTree) implementation of collapsible tree in `R`.
 * _Eurostat_ [table of contents](http://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?sort=1&file=table_of_contents_en.txt) on bulk download facility.
