@@ -25,7 +25,7 @@ This page provides few examples of web-based visualisation of the data and metad
 <tr>
 <td><kbd><a href="https://cdn.rawgit.com/eurostat/d3ex4es/01d12b8f/example1/example1_peps01.html"><img src="docs/example1_peps01.png" alt="Example 1 PEPS01" width="300"></a></kbd></td>
 <td><kbd><a href="https://cdn.rawgit.com/eurostat/d3ex4es/a3a6c755/example2/example2_icw_rawgit.html"><img src="docs/example2_icw.png" alt="Example 2 ICW" width="300"></a></kbd></td>
-<td><kbd><a href=""><img src="docs/" alt="Example 3 ToC" width="300"></a></kbd></td>
+<td><kbd><a href=""><img src="docs/example3_toc.png" alt="Example 3 ToC" width="300"></a></kbd></td>
 </tr>
 </table>
 
