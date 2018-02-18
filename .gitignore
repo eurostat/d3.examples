@@ -2,8 +2,8 @@
 *~
 .DS_Store
 */.DS_Store
+__model
+__temp
 __pycache__
 data
-model
-test
 *.bak
