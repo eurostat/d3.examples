@@ -10,7 +10,7 @@ This page provides few examples of web-based visualisation of the data and metad
 
 <table align="center">
     <tr> <td align="left"><i>documentation</i></td> <td align="left">available at: https://eurostat.github.io/d3ex4es/</td> </tr> 
-    <tr> <td align="left"><i>since</i></td> <td align="left">2017</td> </tr> 
+    <tr> <td align="left"><i>status</i></td> <td align="left">since 2017 &ndash; ongoing</td> </tr> 
     <tr> <td align="left"><i>contributors</i></td> 
     <td align="left" valign="middle">
 <a href="https://github.com/gjacopo"><img src="https://github.com/gjacopo.png" width="40"></a>
