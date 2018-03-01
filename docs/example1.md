@@ -16,7 +16,7 @@ The webpage [_example1_peps01.html_](https://github.com/eurostat/d3ex4es/blob/ma
 </tr>
 </table>
 
-**To actually see the interactive visualisation, you need to download the webpage and display it locally in your browser.** You can get a preview of this page using `rawgit`: **check this [address](https://cdn.rawgit.com/eurostat/d3ex4es/01d12b8f/example1/example1_peps01.html) for direct rendering**, though the display is much slower and some of its features are disabled.
+**To actually see the interactive visualisation, you need to download the webpage and display it locally in your browser.** You can get a preview of this page using `rawgit`: **check this [address](https://cdn.rawgit.com/eurostat/d3ex4es/82aa792d/example1/example1_peps01.html) for direct rendering**, though the display is much slower and some of its features are disabled.
 
 ###### <a name="Usage"></a>Usage
 

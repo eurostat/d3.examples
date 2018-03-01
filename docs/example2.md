@@ -24,7 +24,7 @@ The webpage [_example2_icw.html_](https://github.com/eurostat/d3ex4es/blob/maste
 </table>
 
 
-You can get a preview of this page using `rawgit`: **check this [address](https://cdn.rawgit.com/eurostat/d3ex4es/15d30510/example2/example2_icw_rawgit.html) for direct rendering**. Another **[example](https://cdn.rawgit.com/eurostat/d3ex4es/975963db/example2/example2_ilc_rawgit.html) displaying metadata for [EU-SILC indicators](http://ec.europa.eu/eurostat/web/income-and-living-conditions/data/database)** is also presented.
+You can get a preview of this page using `rawgit`: **check this [address](https://cdn.rawgit.com/eurostat/d3ex4es/82aa792d/example2/example2_icw_rawgit.html) for direct rendering**. Another **[example](https://cdn.rawgit.com/eurostat/d3ex4es/82aa792d/example2/example2_ilc_rawgit.html) displaying metadata for [EU-SILC indicators](http://ec.europa.eu/eurostat/web/income-and-living-conditions/data/database)** is also presented.
 
 ###### <a name="Usage"></a>Usage
 
