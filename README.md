@@ -55,7 +55,7 @@ The webpage [_example3_toc.html_](https://github.com/eurostat/d3ex4es/blob/maste
 
 **<a name="References"></a>References**
 
-* `d3.js` [website](https://d3js.org/) and galleries: [wiki](https://github.com/d3/d3/wiki/Gallery), [_d3list_](http://christopheviau.com/d3list/gallery.html), and more [examples](http://www.bogotobogo.com/DataVisualization/List_of_D3_Examples.php).
+* `d3.js` [website](https://d3js.org/) and galleries: [wiki](https://github.com/d3/d3/wiki/Gallery), [_d3list_](http://christopheviau.com/d3list/gallery.html), and many more [examples](http://www.bogotobogo.com/DataVisualization/List_of_D3_Examples.php).
 * Eurostat dissemination [website](http://ec.europa.eu/eurostat/data/database) and [blocks](https://bl.ocks.org).
 * Eurostat bulk download [facility](http://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing).
 
