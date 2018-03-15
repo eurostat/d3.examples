@@ -12,6 +12,8 @@ The webpage [_example3_toc.html_](https://github.com/eurostat/d3ex4es/blob/maste
 </tr>
 </table>
 
+You can get a preview of this page using `rawgit`: **check this [address](https://cdn.rawgit.com/eurostat/d3ex4es/0b42fab3/example3/example3_toc_rawgit.html) for direct rendering**.
+
 ###### <a name="Usage"></a>Usage
 
 The original material includes: the `Javascript` source code [`dndTree.js`](https://github.com/eurostat/d3ex4es/blob/master/example3/dndTree.js) that has been slightly adapted for the purpose of this visualisation.
