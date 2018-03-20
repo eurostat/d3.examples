@@ -54,6 +54,6 @@ The graph visualisation presented in the example 3 reuses the **[`d3-tree` layou
 **<a name="References"></a>References**
 
 * `d3.js` [website](https://d3js.org/) and galleries: [wiki](https://github.com/d3/d3/wiki/Gallery), [_d3list_](http://christopheviau.com/d3list/gallery.html).
-* Eurostat dissemination [website](http://ec.europa.eu/eurostat/data/database) and [blocks](https://bl.ocks.org).
-* Eurostat bulk download [facility](http://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing).
+* _Eurostat_ dissemination [website](http://ec.europa.eu/eurostat/data/database) and [blocks](https://bl.ocks.org).
+* _Eurostat_ bulk download [facility](http://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing).
 
