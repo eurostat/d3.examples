@@ -106,8 +106,7 @@ class Metabase(object):
         if path is not None:
             base = '%s/%s' % (path, base)
         if not self._fileexists(base):
-            warnings.warn('Base file %s not found' % base)
-            return
+            raise IOError('Base file %s not found' % base)
         self.table = pd.read_csv(base, header=None, sep=self.SEP, names=self.NAMES)
 
     #/************************************************************************/
@@ -210,11 +209,14 @@ class Metabase(object):
 def meta2data(**kwargs):    
     metabase = Metabase()
     try:
+        print('Trying to read metadata from cache...')
         metabase.read(**kwargs)
     except:
+        print('Downloading the bulk table from bulk facility...')
         metabase.download()        
     return metabase.filter(**kwargs)
 
+#%% 
 class ToC(Metabase): # we are just lazy...
     #BULK_DOMAIN     = 'ec.europa.eu/eurostat/estat-navtree-portlet-prod'
     #BULK_QUERY      = 'BulkDownloadListing'
@@ -242,12 +244,11 @@ class ToC(Metabase): # we are just lazy...
         if path is not None:
             base = '%s/%s' % (path, base)
         if not self._fileexists(base):
-            warnings.warn('Base file %s not found' % base)
-            return
+            raise IOError('Base file %s not found' % base)
         self.table = pd.read_csv(base, header='infer', sep=self.SEP
                                    # names=self.NAMES
                                    )
-        
+    
     #/************************************************************************/
     def filter(self, **kwargs):
         df = self.table
@@ -257,6 +258,7 @@ class ToC(Metabase): # we are just lazy...
     
     #/************************************************************************/
     def format(self, *arg):
+        # see also https://github.com/gka/eurostat/blob/master/tree/make_tree.py
         if arg in ((),None):    table = self.table
         else:                   table = arg[0]
         def obsitem(node, obs):
@@ -295,3 +297,4 @@ def toc2table(**kwargs):
         toc.download(header='infer')  
     return toc.format(toc.filter())
     
+#%% 
