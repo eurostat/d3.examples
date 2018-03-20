@@ -11,18 +11,25 @@ from __future__ import print_function
 
 import os, re#analysis:ignore
 import warnings
+from operator import itemgetter
 
 try:
     import numpy as np#analysis:ignore
-except:
+except ImportError:
     raise IOError("Package numpy not imported - Requested")
     
 try:
     import pandas as pd
     PDVERS = int(pd.__version__.split('.')[1])
-except:
+except ImportError:
     PDVERS = 0 # unknown
     raise IOError("Package pandas not imported - Requested")
+
+
+try:
+    import networkx as nx
+except ImportError:
+    raise IOError("Package networkx not imported - Requested")
 
 try:
     import json
@@ -68,8 +75,6 @@ def data2adjacency(df):
     # note: df_cross | df_crossT generates a NotImplementedError error type        
         
 def meta2cross(df, cross=None):  
-    
-    print (df.index)
     idx = {0: [], 1: []}
     if not cross in ([],None):
         if not isinstance(cross, (list,tuple)) or len(cross)!=2:     
@@ -108,6 +113,19 @@ def meta2cross(df, cross=None):
     return [df.ix[pd.Index(idx[0]),metadata.INDICATOR].unique().tolist(), 
             df.ix[pd.Index(idx[1]),metadata.INDICATOR].unique().tolist(), 
             df_cross]
+    
+def adjacency2edges(df, ind0, ind1):
+    #g = nx.from_pandas_adjacency(df.loc[ind0].T.loc[ind1].T)
+    # adjacency matrix needs to be square
+    df_adj = df.copy()
+    df_adj.loc[ind0] = 0
+    df_adj = df_adj.T
+    df_adj.loc[pd.Index(ind1)] = 0
+    df_adj = df_adj.T
+    g = nx.from_pandas_adjacency(df_adj)
+    edges = sorted([(s, t, w['weight']) for (s, t, w) in g.edges(data=True)], key=itemgetter(2), reverse=True)
+    df_edges = pd.DataFrame(edges, columns=("source","target","value"))
+    return df_edges  
 
 def adjacency2json(df_adjacency, **kwargs):
     dimensions, indicators = kwargs.pop('dim',[]), kwargs.pop('ind',[]) 
