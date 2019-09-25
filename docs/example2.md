@@ -24,7 +24,7 @@ The webpage [_example2_icw.html_](https://github.com/eurostat/d3.examples/blob/m
 </table>
 
 
-You can get a preview of this page using `rawgit`: **check this [address](https://raw.githack.com/eurostat/d3.examples/master/example2/example2_icw_rawgit.html) for direct rendering**. Another **[example](https://raw.githack.com/eurostat/d3.examples/master/example2/example2_ilc_rawgit.html) displaying metadata for [EU-SILC indicators](http://ec.europa.eu/eurostat/web/income-and-living-conditions/data/database)** is also presented.
+You can get a preview of this page (_e.g._, using [`githack`](https://raw.githack.com/)): **check this [address](https://raw.githack.com/eurostat/d3.examples/master/example2/example2_icw_raw.html) for direct rendering**. Another **[example](https://raw.githack.com/eurostat/d3.examples/master/example2/example2_ilc_raw.html) displaying metadata for [EU-SILC indicators](http://ec.europa.eu/eurostat/web/income-and-living-conditions/data/database)** is also presented.
 
 ###### <a name="Usage"></a>Usage
 
