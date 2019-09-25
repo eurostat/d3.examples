@@ -16,7 +16,7 @@ The webpage [_example1_peps01.html_](https://github.com/eurostat/d3.examples/blo
 </tr>
 </table>
 
-**To actually see the interactive visualisation, you need to download the webpage and display it locally in your browser.** You can get a preview of this page using `rawgit`: **check this [address](https://raw.githack.com/eurostat/d3.examples/master/example1/example1_peps01.html) for direct rendering**, though the display is much slower and some of its features are disabled.
+**To actually see the interactive visualisation, you need to download the webpage and display it locally in your browser.** You can get a preview of this page (_e.g._, using [`githack`](https://raw.githack.com/): **check this [address](https://raw.githack.com/eurostat/d3.examples/master/example1/example1_peps01.html) for direct rendering**, though the display is much slower and some of its features are disabled.
 
 ###### <a name="Usage"></a>Usage
 
