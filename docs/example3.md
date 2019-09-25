@@ -12,7 +12,7 @@ The webpage [_example3_toc.html_](https://github.com/eurostat/d3.examples/blob/m
 </tr>
 </table>
 
-You can get a preview of this page using `rawgit`: **check this [address](https://raw.githack.com/eurostat/d3.examples/master/example3/example3_toc_rawgit.html) for direct rendering**.
+You can get a preview of this page (_e.g._, using [`githack`](https://raw.githack.com/)): **check this [address](https://raw.githack.com/eurostat/d3.examples/master/example3/example3_toc_raw.html) for direct rendering**.
 
 ###### <a name="Usage"></a>Usage
 
