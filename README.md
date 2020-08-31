@@ -4,19 +4,7 @@ d3.examples
 Applying `d3.js` framework for handling and exploring _Eurostat_ data and metadata.
 ---
 
-**About**
-
 This page provides few examples of web-based visualisation of the data and metadata disseminated on [_Eurostat_ website](http://ec.europa.eu/eurostat/data/database). It uses for that purpose some already existing templates based on the `d3.js` library (_e.g._ see gallery referenced [below](#References)). Besides the example webpages, the material used to handle the extracted (meta)data and prepare (select/filter/reshape) them for visualisation is also provided.
-
-<table align="center">
-    <tr> <td align="left"><i>documentation</i></td> <td align="left">available at: https://eurostat.github.io/d3.examples/</td> </tr> 
-    <tr> <td align="left"><i>status</i></td> <td align="left">since 2017 &ndash; ongoing</td> </tr> 
-    <tr> <td align="left"><i>contributors</i></td> 
-    <td align="left" valign="middle">
-<a href="https://github.com/gjacopo"><img src="https://github.com/gjacopo.png" width="40"></a>
-</td> </tr> 
-    <tr> <td align="left"><i>license</i></td> <td align="left"><a href="https://joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdfEUPL">EUPL</a> </td> </tr> 
-</table>
 
 **Description**
 
@@ -53,9 +41,20 @@ The graph visualisation presented in the example 3 reuses the **[`d3-tree` layou
 
 The webpage [_example3_toc.html_](https://github.com/eurostat/d3.examples/blob/master/example3/example3_toc.html) shows the expandable table of contents. A **preview of this webpage is made available at this [address](https://raw.githack.com/eurostat/d3.examples/master/example3/example3_toc_raw.html)**.
 
+**About**
+
+<table align="center">
+    <tr> <td align="left"><i>documentation</i></td> <td align="left">available at: https://eurostat.github.io/d3.examples/</td> </tr> 
+    <tr> <td align="left"><i>status</i></td> <td align="left">since 2017 &ndash; ongoing</td> </tr> 
+    <tr> <td align="left"><i>contributors</i></td> 
+    <td align="left" valign="middle">
+<a href="https://github.com/gjacopo"><img src="https://github.com/gjacopo.png" width="40"></a>
+</td> </tr> 
+    <tr> <td align="left"><i>license</i></td> <td align="left"><a href="https://joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdfEUPL">EUPL</a> </td> </tr> 
+</table>
+
 **<a name="References"></a>References**
 
 * `d3.js` [website](https://d3js.org/) and galleries: [wiki](https://github.com/d3/d3/wiki/Gallery), [_d3list_](http://christopheviau.com/d3list/gallery.html), and many more [examples](http://www.bogotobogo.com/DataVisualization/List_of_D3_Examples.php).
 * _Eurostat_ dissemination [website](http://ec.europa.eu/eurostat/data/database) and [blocks](https://bl.ocks.org).
 * _Eurostat_ bulk download [facility](http://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing).
-
